@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "storybook": "start-storybook -s ./static -p 6006 --no-dll",
+    "build-storybook": "build-storybook --no-dll"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",
@@ -15,6 +17,14 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/addons": "^6.0.28",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/theming": "^6.0.28",
+    "@storybook/vue": "^6.0.28",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -26,15 +36,19 @@
     "@vue/eslint-config-airbnb": "^5.0.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^1.0.3",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
+    "fork-ts-checker-webpack-plugin": "^5.2.1",
     "lint-staged": "^9.5.0",
     "postcss": "^8.1.6",
     "postcss-font-magician": "^2",
     "postcss-import": "^12",
     "postcss-nested": "^4",
     "postcss-simple-vars": "^5",
+    "react-is": "^17.0.1",
+    "ts-loader": "^8.0.9",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   },
