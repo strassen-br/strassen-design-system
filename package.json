@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.2.0",
     "core-js": "^3.6.5",
     "tailwindcss": "^1.9.6",
     "vue": "^2.6.11"
@@ -30,6 +31,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "lint-staged": "^9.5.0",
     "postcss": "^8.1.6",
+    "postcss-font-magician": "^2",
     "postcss-import": "^12",
     "postcss-nested": "^4",
     "postcss-simple-vars": "^5",
