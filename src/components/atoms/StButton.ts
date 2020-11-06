@@ -1,4 +1,5 @@
-import { RecordPropsDefinition } from 'vue/types/options.d';
+export const buttonColors = <const> ['primary', 'danger', 'success'];
+export const buttonKinds = <const> ['filled', 'outline'];
 
 export type EventsTypes = {
   click: undefined;
@@ -6,21 +7,6 @@ export type EventsTypes = {
 
 export type PropsTypes = {
   label?: string;
-  kind: 'primary' | 'danger' | 'success';
+  color: typeof buttonColors[number];
+  kind: typeof buttonKinds[number];
 }
-
-export const buttonKinds = ['primary', 'danger', 'success'];
-
-export const props = {
-  kind: {
-    type: String,
-    required: false,
-    default: 'primary',
-    validator: (value) => buttonKinds.includes(value),
-  },
-  label: {
-    type: String,
-    required: false,
-    default: undefined,
-  },
-} as RecordPropsDefinition<PropsTypes>;

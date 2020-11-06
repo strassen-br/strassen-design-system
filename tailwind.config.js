@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
+const colorConvert = require('color-convert');
+
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
@@ -29,8 +32,12 @@ module.exports = {
 
       'brand-yellow': '#fac505',
       'brand-purple': '#7214c4',
-      danger: '#fe6364',
-      success: '#60d394',
+
+      'danger-light': '#fe6364',
+      'danger-dark': '#d94153',
+
+      'success-light': '#60d394',
+      'success-dark': '#4ab57b',
 
       black: '#000',
       white: '#fff',
@@ -226,17 +233,36 @@ module.exports = {
       4: '4px',
       8: '8px',
     },
-    boxShadow: {
-      xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
-      sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-      default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-      md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-      lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-      xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-      '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-      inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-      outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-      none: 'none',
+    boxShadow: (theme) => {
+      const getOutlineShadow = (rgb, opacity = '0.5') => `0 0 0 3px rgba(${rgb}, ${opacity})`;
+
+      const brandPurpleHEX = theme('colors.brand-purple');
+      const brandPurpleRGB = colorConvert.hex.rgb(brandPurpleHEX).join(', ');
+      const outlinePurple = getOutlineShadow(brandPurpleRGB);
+
+      const brandYellowHEX = theme('colors.brand-yellow');
+      const brandYellowRGB = colorConvert.hex.rgb(brandYellowHEX).join(', ');
+      const outlineYellow = getOutlineShadow(brandYellowRGB);
+
+      const outlineWhite = getOutlineShadow('255, 255, 255', '0.3');
+      const outlineBlack = getOutlineShadow('0, 0, 0', '0.3');
+
+      return {
+        xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
+        sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+        outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+        'outline-purple': outlinePurple,
+        'outline-yellow': outlineYellow,
+        'outline-white': outlineWhite,
+        'outline-black': outlineBlack,
+        none: 'none',
+      };
     },
     container: {},
     cursor: {
@@ -396,9 +422,15 @@ module.exports = {
     },
     opacity: {
       0: '0',
-      25: '0.25',
+      10: '0.1',
+      20: '0.2',
+      30: '0.3',
+      40: '0.4',
       50: '0.5',
-      75: '0.75',
+      60: '0.6',
+      70: '0.7',
+      80: '0.8',
+      90: '0.9',
       100: '1',
     },
     order: {
@@ -845,13 +877,14 @@ module.exports = {
         body: {
           color: config('theme.colors.black'),
           backgroundColor: config('theme.colors.white'),
+          fontFamily: config('fontFamily.sans'),
         },
-        '@screen dark': {
-          body: {
-            color: config('theme.colors.white'),
-            backgroundColor: config('theme.colors.gray.900'),
-          },
-        },
+        // '@screen dark': {
+        //   body: {
+        //     color: config('theme.colors.white'),
+        //     backgroundColor: config('theme.colors.gray.900'),
+        //   },
+        // },
       });
     },
   ],
