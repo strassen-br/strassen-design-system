@@ -11,6 +11,8 @@ module.exports = {
     require('autoprefixer'),
     require('postcss-font-magician')({
       display: 'swap',
+      foundries: ['hosted'],
+      hosted: ['./static/fonts/inter', '/fonts'],
     }),
   ],
 };
