@@ -1,12 +1,12 @@
 import { VueConstructor } from 'vue';
 import './assets/index.css';
 
-import StButton from './components/atoms/st-button.vue';
+import StButton from './components/atoms/StButton.vue';
 
 // This allows the user to do Vue.use(st) and register all the components
 export function install(Vue: VueConstructor) {
   // atoms
-  Vue.component('st-button', StButton);
+  Vue.component('StButton', StButton);
   // molecules
   // organisms
 }

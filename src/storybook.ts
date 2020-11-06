@@ -1,0 +1,128 @@
+// waiting on official types but until then we can augment them a bit.
+// see https://github.com/storybookjs/storybook/issues/11916
+
+import type {
+  StoryContext,
+  ArgType as BaseArgType,
+  Annotations as BaseAnnotations,
+} from '@storybook/addons';
+import { Component as VueComponent } from 'vue';
+
+/**
+ * Controls
+ */
+type Control<T> =
+  | ControlArray
+  | ControlBare
+  | ControlColor
+  | ControlEnum<T>
+  | ControlNumber;
+
+interface ControlBare {
+  type: 'boolean' | 'object' | 'text' | 'date';
+}
+
+interface ControlArray {
+  type: 'array';
+  separator?: string;
+}
+
+interface ControlColor {
+  type: 'color';
+  presetColors?: string[];
+}
+
+interface ControlEnum<Option> {
+  type:
+    | 'radio'
+    | 'inline-radio'
+    | 'check'
+    | 'inline-check'
+    | 'select'
+    | 'multi-select';
+  options: readonly Option[];
+}
+
+interface ControlNumber {
+  type: 'number' | 'range';
+  min?: number;
+  max?: number;
+  step?: number;
+}
+
+interface Table extends Disable {
+  defaultValue?: Row;
+  type?: Row;
+}
+
+interface Row {
+  detail?: string;
+  summary?: string;
+}
+
+interface Disable {
+  disable?: boolean;
+}
+/**
+ * End of Controls
+ */
+
+/**
+ * Arg Types
+ */
+interface EnhancedArgType<T> extends BaseArgType {
+  control?: Control<T> | Control<T>['type'] | Disable;
+  defaultValue?: T;
+  table?: Table;
+  [key: string]: unknown;
+}
+
+type EnhancedArgTypes<ComponentPropsTypes> = {
+  [key in keyof ComponentPropsTypes]?: EnhancedArgType<ComponentPropsTypes[key]>;
+};
+/**
+ * End of Arg Types
+ */
+
+/**
+  * Annotations
+  */
+interface EnhancedAnnotations<ComponentPropsTypes> extends Omit<BaseAnnotations<ComponentPropsTypes, VueComponent>, 'argTypes'> {
+  argTypes?: EnhancedArgTypes<ComponentPropsTypes>;
+}
+/**
+* End of Annotations
+*/
+
+/**
+ * Story
+ */
+interface StoryReturnType<ComponentPropsTypes> extends EnhancedAnnotations<ComponentPropsTypes> {
+  template: string;
+}
+
+interface EnhancedStoryContext<ComponentPropsTypes> extends Omit<StoryContext, 'argTypes'> {
+  argTypes: EnhancedArgTypes<ComponentPropsTypes>;
+}
+
+export interface Story<ComponentPropsTypes> {
+  (
+    args: ComponentPropsTypes,
+    context: EnhancedStoryContext<ComponentPropsTypes>
+  ): StoryReturnType<ComponentPropsTypes>;
+}
+/**
+ * End of Story
+ */
+
+/**
+ * Meta
+ */
+export interface Meta<ComponentPropsTypes> extends EnhancedAnnotations<ComponentPropsTypes> {
+  title: string;
+  component: VueComponent;
+  subcomponents?: Record<string, VueComponent>;
+}
+/**
+ * End of Meta
+ */
