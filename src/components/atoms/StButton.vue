@@ -61,52 +61,50 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   transition-all duration-200 ease-in;
 }
 
-/* @screen light { */
-  .st-button-wrapper {
-    @apply text-white;
+.light .st-button-wrapper {
+  @apply text-white;
+  &.primary {
+    @apply bg-black;
+  }
+  &.danger {
+    @apply bg-danger-light;
+  }
+  &.success {
+    @apply bg-success-light;
+  }
+
+  &:hover {
+    @apply bg-opacity-70;
+  }
+  &:active {
+    @apply bg-opacity-100;
+  }
+  &:focus, &:focus-within {
+    @apply shadow-outline-black ease-out;
+  }
+
+  &.outline {
+    @apply text-black bg-transparent border-2;
     &.primary {
-      @apply bg-black;
+      @apply border-black;
     }
     &.danger {
-      @apply bg-danger-light;
+      @apply border-danger-light text-danger-light;
     }
     &.success {
-      @apply bg-success-light;
+      @apply border-success-light text-success-light;
     }
 
     &:hover {
-      @apply bg-opacity-70;
+    @apply border-opacity-50 text-opacity-50;
     }
     &:active {
-      @apply bg-opacity-100;
-    }
-    &:focus, &:focus-within {
-      @apply shadow-outline-black ease-out;
-    }
-
-    &.outline {
-      @apply text-black bg-transparent border-2;
-      &.primary {
-        @apply border-black;
-      }
-      &.danger {
-        @apply border-danger-light text-danger-light;
-      }
-      &.success {
-        @apply border-success-light text-success-light;
-      }
-
-      &:hover {
-      @apply border-opacity-50 text-opacity-50;
-      }
-      &:active {
-        @apply border-opacity-100 text-opacity-100;
-      }
+      @apply border-opacity-100 text-opacity-100;
     }
   }
-/* } */
+}
 
-/* @screen dark {
+.dark {
   .st-button-wrapper {
     @apply text-black;
     &.primary {
@@ -149,5 +147,5 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
       }
     }
   }
-} */
+}
 </style>

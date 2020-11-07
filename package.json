@@ -2,7 +2,7 @@
   "author": "Thales Agapito",
   "name": "@strassen/design-system",
   "description": "Strassen Design System",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "GPLv3",
   "private": true,
   "main": "./dist/design-system.common.js",
@@ -29,7 +29,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib src/main.ts",
-    "build-lib": "vue-cli-service build --target lib src/main.ts && npm pack",
+    "build-pack-lib": "vue-cli-service build --target lib src/main.ts && npm pack",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -s ./static -p 6006 --no-dll",
@@ -41,6 +41,7 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "tailwindcss": "^1.9.6",
+    "tailwindcss-theming": "^3.0.0-beta.1",
     "vue": "^2.6.12"
   },
   "devDependencies": {
@@ -79,6 +80,7 @@
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
     "react-is": "^17.0.1",
+    "storybook-dark-mode": "^1.0.3",
     "ts-loader": "^8.0.9",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.12"

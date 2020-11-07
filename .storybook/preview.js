@@ -1,5 +1,12 @@
 import '../src/assets/index.css';
+import { dark, light } from './strassenTheme';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-}
+  darkMode: {
+    dark,
+    light,
+    darkClass: 'dark',
+    lightClass: 'light',
+    stylePreview: true
+  },
+};

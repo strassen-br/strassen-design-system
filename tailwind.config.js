@@ -3,6 +3,11 @@
 const colorConvert = require('color-convert');
 
 module.exports = {
+  // enables dark mode when having a parent class named 'dark'
+  dark: 'class',
+  experimental: {
+    darkModeVariant: true,
+  },
   future: {
     // removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
@@ -52,8 +57,8 @@ module.exports = {
         500: '#9e9e9e',
         600: '#757575',
         700: '#616161',
-        800: '#424242',
-        900: '#181818',
+        800: '#323232',
+        900: '#202020',
       },
       red: {
         100: '#fff5f5',
@@ -258,7 +263,6 @@ module.exports = {
         xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-        outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
         'outline-purple': outlinePurple,
         'outline-yellow': outlineYellow,
         'outline-white': outlineWhite,
@@ -881,12 +885,10 @@ module.exports = {
           backgroundColor: config('theme.colors.white'),
           fontFamily: config('fontFamily.sans'),
         },
-        // '@screen dark': {
-        //   body: {
-        //     color: config('theme.colors.white'),
-        //     backgroundColor: config('theme.colors.gray.900'),
-        //   },
-        // },
+        'body.dark': {
+          color: config('theme.colors.white'),
+          backgroundColor: config('theme.colors.gray.900'),
+        },
       });
     },
   ],
