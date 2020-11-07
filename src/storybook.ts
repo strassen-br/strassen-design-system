@@ -1,6 +1,6 @@
 // waiting on official types but until then we can augment them a bit.
 // see https://github.com/storybookjs/storybook/issues/11916
-import { transform } from 'lodash';
+import { transform, camelCase } from 'lodash';
 
 import type {
   StoryContext,
@@ -91,7 +91,8 @@ type EnhancedArgTypes<ComponentPropsTypes> = {
 /**
   * Annotations
   */
-interface EnhancedAnnotations<ComponentPropsTypes> extends Omit<BaseAnnotations<ComponentPropsTypes, VueComponent>, 'argTypes'> {
+interface EnhancedAnnotations<ComponentPropsTypes>
+  extends Omit<BaseAnnotations<ComponentPropsTypes, VueComponent>, 'argTypes'> {
   argTypes?: EnhancedArgTypes<ComponentPropsTypes>;
 }
 /**
@@ -133,7 +134,7 @@ export function filterArgTypesWithControls(argTypes: Record<string, any>): strin
   return transform<Record<string, any>, string[]>(
     argTypes,
     (acc, { control }, argTypeName: string) => {
-      if (control) acc.push(argTypeName);
+      if (control) acc.push(camelCase(argTypeName));
     },
     [],
   );

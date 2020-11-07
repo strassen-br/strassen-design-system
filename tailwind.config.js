@@ -40,11 +40,15 @@ module.exports = {
       'brand-yellow': '#fac505',
       'brand-purple': '#7214c4',
 
-      'danger-light': '#fe6364',
-      'danger-dark': '#d94153',
+      danger: {
+        light: '#f94153',
+        dark: '#fe6364',
+      },
 
-      'success-light': '#60d394',
-      'success-dark': '#4ab57b',
+      success: {
+        light: '#4ab57b',
+        dark: '#60d394',
+      },
 
       black: '#000',
       white: '#fff',
@@ -244,17 +248,21 @@ module.exports = {
     },
     boxShadow: (theme) => {
       const getOutlineShadow = (rgb, opacity = '0.5') => `0 0 0 3px rgba(${rgb}, ${opacity})`;
+      const getOutlineShadows = (shadows) => shadows.reduce((acc, { shadowName, colorName, opacity }) => {
+        const colorHEX = theme(`colors.${colorName}`);
+        const colorRGB = colorConvert.hex.rgb(colorHEX).join();
+        const shadowValue = getOutlineShadow(colorRGB, opacity);
+        return { ...acc, [shadowName]: shadowValue };
+      }, {});
 
-      const brandPurpleHEX = theme('colors.brand-purple');
-      const brandPurpleRGB = colorConvert.hex.rgb(brandPurpleHEX).join(', ');
-      const outlinePurple = getOutlineShadow(brandPurpleRGB);
-
-      const brandYellowHEX = theme('colors.brand-yellow');
-      const brandYellowRGB = colorConvert.hex.rgb(brandYellowHEX).join(', ');
-      const outlineYellow = getOutlineShadow(brandYellowRGB);
-
-      const outlineWhite = getOutlineShadow('255, 255, 255', '0.3');
-      const outlineBlack = getOutlineShadow('0, 0, 0', '0.3');
+      const shadows = [
+        { shadowName: 'outline-purple', colorName: 'brand-purple' },
+        { shadowName: 'outline-yellow', colorName: 'brand-yellow' },
+        { shadowName: 'outline-danger', colorName: 'danger.light', opacity: '0.3' },
+        { shadowName: 'outline-success', colorName: 'success.light', opacity: '0.3' },
+        { shadowName: 'outline-white', colorName: 'white', opacity: '0.3' },
+        { shadowName: 'outline-black', colorName: 'black', opacity: '0.3' },
+      ];
 
       return {
         xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
@@ -265,10 +273,7 @@ module.exports = {
         xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-        'outline-purple': outlinePurple,
-        'outline-yellow': outlineYellow,
-        'outline-white': outlineWhite,
-        'outline-black': outlineBlack,
+        ...getOutlineShadows(shadows),
         none: 'none',
       };
     },

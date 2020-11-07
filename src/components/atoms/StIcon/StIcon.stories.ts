@@ -19,7 +19,7 @@ const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
 export const Base = Template.bind({});
 
 export default {
-  title: 'Controls/Icon',
+  title: 'General/Icon',
   component: StIcon,
   argTypes: {
     kind: {

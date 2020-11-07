@@ -6,10 +6,11 @@ export type EventsTypes = {
 }
 
 export type PropsTypes = {
-  topLabel?: string;
-  bottomLabel?: string;
+  topLabelText?: string;
+  bottomLabelText?: string;
   value?: string;
   color: typeof componentColors[number];
   size: typeof componentSizes[number];
   disabled: boolean;
+  uppercase: boolean;
 }
