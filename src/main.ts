@@ -1,14 +1,26 @@
 import { VueConstructor } from 'vue';
+import 'remixicon/fonts/remixicon.css';
+
 import './assets/index.css';
 
-import StButton from './components/atoms/StButton.vue';
+// atoms
+import StButton from './components/atoms/StButton/StButton.vue';
+import StIcon from './components/atoms/StIcon/StIcon.vue';
+// molecules
+// organisms
+
+const components = [
+  // atoms
+  StButton,
+  StIcon,
+
+  // molecules
+  // organisms
+];
 
 // This allows the user to do Vue.use(st) and register all the components
 export function install(Vue: VueConstructor) {
-  // atoms
-  Vue.component('StButton', StButton);
-  // molecules
-  // organisms
+  components.forEach((component) => Vue.component(component.name, component));
 }
 
 // This allows the user to independently register components

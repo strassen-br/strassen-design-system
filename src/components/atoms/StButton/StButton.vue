@@ -18,7 +18,6 @@ type Methods = {
 type Computed = {
   wrapperClasses: string;
 }
-export type Events = {}
 
 export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   props: {

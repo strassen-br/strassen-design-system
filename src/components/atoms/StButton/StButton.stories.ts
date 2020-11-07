@@ -6,7 +6,7 @@ import {
   buttonColors,
 } from './StButton';
 import StButton from './StButton.vue';
-import { filterArgTypesWithControls } from '../../../.storybook/storiesHelpers';
+import { filterArgTypesWithControls } from '../../../../.storybook/storiesHelpers';
 
 /**
  * Base template, used by other stories
