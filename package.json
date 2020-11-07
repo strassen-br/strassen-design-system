@@ -2,7 +2,7 @@
   "author": "Thales Agapito",
   "name": "@strassen/design-system",
   "description": "Strassen Design System",
-  "version": "0.1.14",
+  "version": "0.1.16",
   "license": "GPLv3",
   "private": true,
   "main": "./dist/design-system.common.js",
@@ -41,7 +41,6 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "tailwindcss": "^1.9.6",
-    "tailwindcss-theming": "^3.0.0-beta.1",
     "vue": "^2.6.12"
   },
   "devDependencies": {
