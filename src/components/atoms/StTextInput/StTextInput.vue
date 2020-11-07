@@ -2,14 +2,17 @@
   .st-text-input-wrapper(:class="wrapperClasses")
     slot(name="topLabel"): label.top-label {{ topLabelText }}
 
-    input.input(
-      v-bind="$attrs"
-      :disabled="disabled"
-      :value="value"
-      v-on="$listeners"
-      @input="emitInput"
-      @click="emitClickIfNotDisabled"
-    )
+    .relative
+      input.input(
+        v-bind="$attrs"
+        :disabled="disabled"
+        :value="value"
+        v-on="$listeners"
+        @input="emitInput"
+        @click="emitClickIfNotDisabled"
+      )
+      .left-slot: slot(name="left")
+      .right-slot: slot(name="right")
 
     transition(name="fade")
       .relative(v-if="hasBottomLabel")
@@ -117,24 +120,41 @@ $input-transition: transition-all duration-200 ease-out;
   @apply flex flex-col;
 
   .input {
-    @apply flex items-center outline-none $input-transition;
+    @apply flex items-center w-full outline-none $input-transition;
   }
 
   .bottom-label {
     @apply absolute opacity-70 $input-transition;
   }
 
+  .left-slot,
+  .right-slot {
+    @apply absolute top-0 h-full flex justify-center items-center;
+  }
+  .left-slot {
+    @apply left-0;
+  }
+  .right-slot {
+    @apply right-0;
+  }
+
   &.xs {
     @apply pb-4 text-xs;
-    .input {
-      @apply h-8 px-2 mb-1;
+    .relative {
+      @apply  mb-1;
+      .input {
+        @apply h-8 px-2;
+      }
     }
   }
 
   &.sm {
     @apply pb-5 text-sm;
-    .input {
-      @apply h-9 px-2 my-1;
+    .relative {
+      @apply  my-1;
+      .input {
+        @apply h-9 px-2;
+      }
     }
     .bottom-label {
       @apply text-xs;
@@ -143,8 +163,11 @@ $input-transition: transition-all duration-200 ease-out;
 
   &.md {
     @apply pb-5 text-base;
-    .input {
-      @apply h-10 px-3 my-1 text-base;
+    .relative {
+      @apply  my-1;
+      .input {
+        @apply h-10 px-3;
+      }
     }
     .bottom-label {
       @apply text-sm;
@@ -153,8 +176,11 @@ $input-transition: transition-all duration-200 ease-out;
 
   &.lg {
     @apply pb-6 text-lg;
-    .input {
-      @apply h-12 px-3 my-1 text-lg;
+    .relative {
+      @apply  my-1;
+      .input {
+        @apply h-12 px-3;
+      }
     }
     .bottom-label {
       @apply text-base;
@@ -172,7 +198,7 @@ $input-transition: transition-all duration-200 ease-out;
   &.uppercase,
   &.uppercase .input,
   &.uppercase .input::placeholder {
-    @apply uppercase tracking-tight font-semibold;
+    @apply uppercase tracking-tight font-bold;
   }
 }
 

@@ -9,12 +9,22 @@ import StTextInput from './StTextInput.vue';
 const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
   props: filterArgTypesWithControls(argTypes),
   components: { StTextInput },
-  template: `<st-text-input v-bind="$props">
-    <template v-if="topLabel" v-slot:topLabel>
+  template: `
+  <st-text-input v-bind="$props">
+    <template v-if="topLabel" #topLabel>
       <div v-html="topLabel" />
     </template>
-    <template v-if="bottomLabel" v-slot:bottomLabel>
+
+    <template v-if="bottomLabel" #bottomLabel>
       <div class="absolute" v-html="bottomLabel" />
+    </template>
+
+    <template #left>
+      <div v-html="left" />
+    </template>
+
+    <template #right>
+      <div v-html="right" />
     </template>
   </st-text-input>`,
 }));
@@ -89,6 +99,16 @@ export default {
     },
     bottomLabel: {
       description: 'Content shown below the input. Can contain html, components, etc',
+      table: { type: false },
+      control: { type: 'text' },
+    },
+    left: {
+      description: 'Content shown inside the input aligned to the left. Useful for icons, buttons, etc',
+      table: { type: false },
+      control: { type: 'text' },
+    },
+    right: {
+      description: 'Content shown inside the input aligned to the right. Useful for icons, buttons, etc',
       table: { type: false },
       control: { type: 'text' },
     },
