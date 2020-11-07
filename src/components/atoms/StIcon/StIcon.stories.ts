@@ -1,4 +1,4 @@
-import { Meta, Story } from '@/storybook';
+import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
 import {
   PropsTypes,
   EventsTypes,
@@ -6,7 +6,6 @@ import {
   iconNames,
 } from './StIcon';
 import StIcon from './StIcon.vue';
-import { filterArgTypesWithControls } from '../../../../.storybook/storiesHelpers';
 
 /**
  * Base template, used by other stories

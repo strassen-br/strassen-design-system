@@ -1,4 +1,5 @@
-export const buttonColors = <const> ['primary', 'danger', 'success'];
+import { componentColors } from '@/components/sharedConstants';
+
 export const buttonKinds = <const> ['filled', 'outline'];
 
 export type EventsTypes = {
@@ -7,7 +8,7 @@ export type EventsTypes = {
 
 export type PropsTypes = {
   label?: string;
-  color: typeof buttonColors[number];
+  color: typeof componentColors[number];
   kind: typeof buttonKinds[number];
   disabled: boolean;
 }

@@ -9,7 +9,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import { RecordPropsDefinition } from 'vue/types/options.d';
-import { PropsTypes, buttonColors, buttonKinds } from './StButton';
+import { componentColors } from '@/components/sharedConstants';
+import { PropsTypes, buttonKinds } from './StButton';
 
 type Data = {}
 type Methods = {
@@ -25,7 +26,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
       type: String,
       required: false,
       default: 'primary',
-      validator: (value) => buttonColors.includes(value),
+      validator: (value) => componentColors.includes(value),
     },
     kind: {
       type: String,

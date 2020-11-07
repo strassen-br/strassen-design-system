@@ -1,5 +1,6 @@
 // waiting on official types but until then we can augment them a bit.
 // see https://github.com/storybookjs/storybook/issues/11916
+import { transform } from 'lodash';
 
 import type {
   StoryContext,
@@ -7,6 +8,9 @@ import type {
   Annotations as BaseAnnotations,
 } from '@storybook/addons';
 import { Component as VueComponent } from 'vue';
+/**
+ * End of Meta
+ */
 
 /**
  * Controls
@@ -123,6 +127,15 @@ export interface Meta<ComponentPropsTypes> extends EnhancedAnnotations<Component
   component: VueComponent;
   subcomponents?: Record<string, VueComponent>;
 }
-/**
- * End of Meta
- */
+
+/* Stories helpers */
+export function filterArgTypesWithControls(argTypes: Record<string, any>): string [] {
+  return transform<Record<string, any>, string[]>(
+    argTypes,
+    (acc, { control }, argTypeName: string) => {
+      if (control) acc.push(argTypeName);
+    },
+    [],
+  );
+}
+/* Stories helpers */

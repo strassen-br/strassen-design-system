@@ -1,12 +1,7 @@
-import { Meta, Story } from '@/storybook';
-import {
-  PropsTypes,
-  EventsTypes,
-  buttonKinds,
-  buttonColors,
-} from './StButton';
+import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
+import { componentColors } from '@/components/sharedConstants';
+import { PropsTypes, EventsTypes, buttonKinds } from './StButton';
 import StButton from './StButton.vue';
-import { filterArgTypesWithControls } from '../../../../.storybook/storiesHelpers';
 
 /**
  * Base template, used by other stories
@@ -27,8 +22,8 @@ export default {
   argTypes: {
     color: {
       description: 'Button color',
-      table: { type: { summary: buttonColors.join(' | ') } },
-      control: { type: 'inline-radio', options: buttonColors },
+      table: { type: { summary: componentColors.join(' | ') } },
+      control: { type: 'inline-radio', options: componentColors },
       defaultValue: 'primary',
     },
     kind: {

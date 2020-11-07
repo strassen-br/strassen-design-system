@@ -2,7 +2,7 @@
   "author": "Thales Agapito",
   "name": "@strassen/design-system",
   "description": "Strassen Design System",
-  "version": "0.1.17",
+  "version": "0.1.21",
   "license": "GPLv3",
   "private": true,
   "main": "./dist/design-system.common.js",
@@ -82,6 +82,8 @@
     "react-is": "^17.0.1",
     "storybook-dark-mode": "^1.0.3",
     "ts-loader": "^8.0.9",
+    "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.12"
   },

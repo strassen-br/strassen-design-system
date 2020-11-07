@@ -9,24 +9,17 @@ import StIcon from './components/atoms/StIcon/StIcon.vue';
 // molecules
 // organisms
 
-const components = [
-  // atoms
-  StButton,
-  StIcon,
-
-  // molecules
-  // organisms
-];
-
 // This allows the user to do Vue.use(st) and register all the components
 export function install(Vue: VueConstructor) {
-  components.forEach((component) => Vue.component(component.name, component));
+  Vue.component('StButton', StButton);
+  Vue.component('StIcon', StIcon);
 }
 
 // This allows the user to independently register components
 export {
   // atoms
   StButton,
+  StIcon,
   // molecules
   // organisms
 };
