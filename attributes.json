@@ -1,0 +1,20 @@
+{
+  "st-button/color": {
+    "description": "Predefined color of the button",
+    "options": [
+      "primary",
+      "danger",
+      "success"
+    ]
+  },
+  "st-button/kind": {
+    "description": "Kind of the button, used to make it more or less noticeable",
+    "options": [
+      "filled",
+      "outline"
+    ]
+  },
+  "st-button/label": {
+    "description": "Text inside the button. You can also use the default slot if needed"
+  }
+}

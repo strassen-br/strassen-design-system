@@ -1,10 +1,35 @@
 {
-  "name": "strassen-design-system",
-  "version": "0.1.0",
+  "author": "Thales Agapito",
+  "name": "@strassen/design-system",
+  "description": "Strassen Design System",
+  "version": "0.1.13",
+  "license": "GPLv3",
   "private": true,
+  "main": "./dist/design-system.common.js",
+  "directories": {
+    "test": "tests"
+  },
+  "files": [
+    "dist",
+    "src",
+    "static",
+    "types",
+    "attributes.json",
+    "tags.json"
+  ],
+  "types": "./types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thalesagapito/strassen-design-system.git"
+  },
+  "homepage": "https://github.com/thalesagapito/strassen-design-system#readme",
+  "bugs": {
+    "url": "https://github.com/thalesagapito/strassen-design-system/issues"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib src/main.ts",
+    "build-lib": "vue-cli-service build --target lib src/main.ts && npm pack",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -s ./static -p 6006 --no-dll",
@@ -56,7 +81,7 @@
     "react-is": "^17.0.1",
     "ts-loader": "^8.0.9",
     "typescript": "~3.9.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -66,5 +91,9 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "vetur": {
+    "tags": "tags.json",
+    "attributes": "attributes.json"
   }
 }

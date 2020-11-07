@@ -5,9 +5,11 @@ const colorConvert = require('color-convert');
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
+    purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: {
+    content: ['./src/**/*.vue'],
+  },
   target: 'relaxed',
   prefix: '',
   important: false,

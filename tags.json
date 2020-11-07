@@ -1,0 +1,14 @@
+{
+  "st-button": {
+    "description": "Square uppercase button",
+    "attributes": [
+      "kind",
+      "color",
+      "label"
+    ],
+    "defaults": [
+      "kind",
+      "color"
+    ]
+  }
+}
