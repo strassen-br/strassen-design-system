@@ -1,7 +1,7 @@
 <template lang="pug">
   button.st-button-wrapper(
     :class="wrapperClasses"
-    @click="emitClick"
+    @click="emitClickIfNotDisabled"
   )
     slot {{ label }}
 </template>
@@ -13,7 +13,7 @@ import { PropsTypes, buttonColors, buttonKinds } from './StButton';
 
 type Data = {}
 type Methods = {
-  emitClick: () => void;
+  emitClickIfNotDisabled: () => void;
 }
 type Computed = {
   wrapperClasses: string;
@@ -39,14 +39,21 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
       required: false,
       default: undefined,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   } as RecordPropsDefinition<PropsTypes>,
   computed: {
     wrapperClasses() {
-      return `${this.color} ${this.kind}`;
+      const disabledClass = this.disabled ? 'disabled' : '';
+      return `${this.color} ${this.kind} ${disabledClass}`;
     },
   },
   methods: {
-    emitClick() {
+    emitClickIfNotDisabled() {
+      if (this.disabled) return;
       this.$emit('click');
     },
   },
@@ -59,6 +66,10 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   cursor-pointer outline-none
   uppercase text-xs font-semibold
   transition-all duration-200 ease-in;
+
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
 }
 
 .light .st-button-wrapper {
@@ -80,7 +91,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     @apply bg-opacity-100;
   }
   &:focus, &:focus-within {
-    @apply shadow-outline-black ease-out;
+    @apply shadow-outline-black ease-out rounded-1;
   }
 
   &.outline {
@@ -124,7 +135,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
       @apply bg-opacity-60;
     }
     &:focus, &:focus-within {
-      @apply shadow-outline-white ease-out;
+      @apply shadow-outline-white ease-out rounded-1;
     }
 
     &.outline {
@@ -146,6 +157,16 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
         @apply border-opacity-50 text-opacity-50;
       }
     }
+  }
+}
+
+.light .st-button-wrapper,
+.dark .st-button-wrapper {
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active {
+    @apply bg-opacity-60 text-opacity-60 shadow-none;
   }
 }
 </style>

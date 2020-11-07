@@ -9,4 +9,5 @@ export type PropsTypes = {
   label?: string;
   color: typeof buttonColors[number];
   kind: typeof buttonKinds[number];
+  disabled: boolean;
 }

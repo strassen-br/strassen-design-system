@@ -1,6 +1,6 @@
 {
   "st-button/color": {
-    "description": "Predefined color of the button",
+    "description": "Predefined color of the button, default: primary",
     "options": [
       "primary",
       "danger",
@@ -8,7 +8,7 @@
     ]
   },
   "st-button/kind": {
-    "description": "Kind of the button, used to make it more or less noticeable",
+    "description": "Kind of the button, used to make it more or less noticeable, default: filled",
     "options": [
       "filled",
       "outline"
@@ -16,5 +16,13 @@
   },
   "st-button/label": {
     "description": "Text inside the button. You can also use the default slot if needed"
+  },
+  "st-button/disabled": {
+    "description": "Whether the component should have a disabled style and not emit clicks",
+    "type": "boolean"
+  },
+  "st-button/click": {
+    "description": "Emitted when the button is clicked",
+    "type": "function"
   }
 }

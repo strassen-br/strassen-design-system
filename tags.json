@@ -4,11 +4,14 @@
     "attributes": [
       "kind",
       "color",
-      "label"
+      "label",
+      "disabled",
+      "click"
     ],
     "defaults": [
       "kind",
-      "color"
+      "color",
+      "click"
     ]
   }
 }
