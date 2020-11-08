@@ -72,6 +72,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 }
 
+.st-button-wrapper,
 .light .st-button-wrapper {
   @apply text-white;
   &.primary {
@@ -91,7 +92,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     @apply bg-opacity-100;
   }
   &:focus, &:focus-within {
-    @apply shadow-outline-black ease-out rounded-1;
+    @apply shadow-outline-black ease-out;
   }
 
   &.outline {
@@ -134,7 +135,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     @apply bg-opacity-60;
   }
   &:focus, &:focus-within {
-    @apply shadow-outline-white ease-out rounded-1;
+    @apply shadow-outline-white ease-out;
   }
 
   &.outline {

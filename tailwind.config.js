@@ -888,6 +888,7 @@ module.exports = {
     ({ addBase, config }) => {
       addBase({
         body: {
+          fontSize: '16px',
           color: config('theme.colors.black'),
           backgroundColor: config('theme.colors.white'),
           fontFamily: config('fontFamily.sans'),

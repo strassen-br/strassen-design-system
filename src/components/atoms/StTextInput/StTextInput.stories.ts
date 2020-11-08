@@ -1,3 +1,4 @@
+import { actions } from '@storybook/addon-actions';
 import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
 import { componentColors, componentSizes } from '@/components/sharedConstants';
 import { PropsTypes, EventsTypes } from './StTextInput';
@@ -9,8 +10,9 @@ import StTextInput from './StTextInput.vue';
 const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
   props: filterArgTypesWithControls(argTypes),
   components: { StTextInput },
+  methods: actions('click', 'input'),
   template: `
-  <st-text-input v-bind="$props">
+  <st-text-input v-bind="$props" @click="click" @input="input">
     <template v-if="topLabel" #topLabel>
       <div v-html="topLabel" />
     </template>
@@ -26,7 +28,8 @@ const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
     <template #right>
       <div v-html="right" />
     </template>
-  </st-text-input>`,
+  </st-text-input>
+  `,
 }));
 
 export const Base = Template.bind({});
@@ -46,12 +49,6 @@ export default {
       table: { type: { summary: 'String' } },
       control: { type: 'text' },
       defaultValue: 'My placeholder',
-    },
-    color: {
-      description: 'Input color, used to show validation state',
-      table: { type: { summary: componentColors.join(' | ') } },
-      control: { type: 'inline-radio', options: componentColors },
-      defaultValue: 'primary',
     },
     topLabelText: {
       description: 'Text shown above the input. Not visible when also using a slot',
@@ -77,6 +74,12 @@ export default {
       table: { type: { summary: 'Boolean' } },
       control: { type: 'boolean' },
       defaultValue: false,
+    },
+    color: {
+      description: 'Input color, used to show validation state',
+      table: { type: { summary: componentColors.join(' | ') } },
+      control: { type: 'inline-radio', options: componentColors },
+      defaultValue: 'primary',
     },
     size: {
       description: 'Size of the text input',

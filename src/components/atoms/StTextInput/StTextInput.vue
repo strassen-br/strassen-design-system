@@ -2,7 +2,7 @@
   .st-text-input-wrapper(:class="wrapperClasses")
     slot(name="topLabel"): label.top-label {{ topLabelText }}
 
-    .relative
+    .relative-input-wrapper
       input.input(
         v-bind="$attrs"
         :disabled="disabled"
@@ -15,7 +15,7 @@
       .right-slot: slot(name="right")
 
     transition(name="fade")
-      .relative(v-if="hasBottomLabel")
+      .relative-bottom-wrapper(v-if="hasBottomLabel")
         slot(name="bottomLabel"): label.bottom-label {{ bottomLabelText }}
 </template>
 
@@ -123,8 +123,15 @@ $input-transition: transition-all duration-200 ease-out;
     @apply flex items-center w-full outline-none $input-transition;
   }
 
-  .bottom-label {
-    @apply absolute opacity-70 $input-transition;
+  .relative-input-wrapper {
+    @apply relative;
+  }
+
+  .relative-bottom-wrapper {
+    @apply relative;
+    .bottom-label {
+      @apply absolute opacity-70 $input-transition;
+    }
   }
 
   .left-slot,
@@ -140,20 +147,20 @@ $input-transition: transition-all duration-200 ease-out;
 
   &.xs {
     @apply pb-4 text-xs;
-    .relative {
+    .relative-input-wrapper {
       @apply  mb-1;
       .input {
-        @apply h-8 px-2;
+        @apply h-9 px-3;
       }
     }
   }
 
   &.sm {
     @apply pb-5 text-sm;
-    .relative {
+    .relative-input-wrapper {
       @apply  my-1;
       .input {
-        @apply h-9 px-2;
+        @apply h-10 px-3;
       }
     }
     .bottom-label {
@@ -163,7 +170,7 @@ $input-transition: transition-all duration-200 ease-out;
 
   &.md {
     @apply pb-5 text-base;
-    .relative {
+    .relative-input-wrapper {
       @apply  my-1;
       .input {
         @apply h-10 px-3;
@@ -176,7 +183,7 @@ $input-transition: transition-all duration-200 ease-out;
 
   &.lg {
     @apply pb-6 text-lg;
-    .relative {
+    .relative-input-wrapper {
       @apply  my-1;
       .input {
         @apply h-12 px-3;
@@ -198,10 +205,11 @@ $input-transition: transition-all duration-200 ease-out;
   &.uppercase,
   &.uppercase .input,
   &.uppercase .input::placeholder {
-    @apply uppercase tracking-tight font-bold;
+    @apply uppercase tracking-tighter font-semibold;
   }
 }
 
+.st-text-input-wrapper,
 .light .st-text-input-wrapper {
   .input {
     @apply bg-white border border-gray-400;
@@ -210,7 +218,7 @@ $input-transition: transition-all duration-200 ease-out;
       @apply border-black shadow-outline-black;
     }
     &::placeholder {
-      @apply text-gray-400;
+      @apply text-gray-500;
     }
   }
 
@@ -223,7 +231,7 @@ $input-transition: transition-all duration-200 ease-out;
       @apply border-danger-light border-opacity-70;
 
       &:focus {
-        @apply border-danger-light border-opacity-100 shadow-outline-danger rounded-1;
+        @apply border-danger-light border-opacity-100 shadow-outline-danger;
       }
     }
     .bottom-label {
@@ -239,7 +247,7 @@ $input-transition: transition-all duration-200 ease-out;
       @apply border-success-light border-opacity-70;
 
       &:focus {
-        @apply border-success-light border-opacity-100 shadow-outline-success rounded-1;
+        @apply border-success-light border-opacity-100 shadow-outline-success;
       }
     }
     .bottom-label {
@@ -256,7 +264,7 @@ $input-transition: transition-all duration-200 ease-out;
     @apply bg-gray-900 border border-gray-600;
 
     &:focus {
-      @apply border-white shadow-outline-white rounded-1;
+      @apply border-white shadow-outline-white;
     }
     &::placeholder {
       @apply text-gray-600;
@@ -272,7 +280,7 @@ $input-transition: transition-all duration-200 ease-out;
       @apply border-danger-dark border-opacity-70;
 
       &:focus {
-        @apply border-danger-dark border-opacity-100 shadow-outline-danger rounded-1;
+        @apply border-danger-dark border-opacity-100 shadow-outline-danger;
       }
     }
     .bottom-label {
@@ -288,7 +296,7 @@ $input-transition: transition-all duration-200 ease-out;
       @apply border-success-dark border-opacity-70;
 
       &:focus {
-        @apply border-success-dark border-opacity-100 shadow-outline-success rounded-1;
+        @apply border-success-dark border-opacity-100 shadow-outline-success;
       }
     }
     .bottom-label {

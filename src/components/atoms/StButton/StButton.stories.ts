@@ -1,3 +1,4 @@
+import { actions } from '@storybook/addon-actions';
 import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
 import { componentColors } from '@/components/sharedConstants';
 import { PropsTypes, EventsTypes, buttonKinds } from './StButton';
@@ -9,7 +10,9 @@ import StButton from './StButton.vue';
 const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
   props: filterArgTypesWithControls(argTypes),
   components: { StButton },
-  template: `<st-button v-bind="$props">
+  methods: actions('click'),
+  template: `
+  <st-button v-bind="$props" @click="click">
     <div v-if="$props.default" v-html="$props.default" />
   </st-button>`,
 }));

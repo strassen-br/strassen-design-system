@@ -26,5 +26,13 @@ module.exports = {
         jest: true,
       },
     },
+    {
+      files: [
+        'src/**/*.stories.{j,t}s?(x)',
+      ],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
   ],
 };
