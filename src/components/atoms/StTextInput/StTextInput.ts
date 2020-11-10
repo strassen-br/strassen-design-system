@@ -1,11 +1,11 @@
 import { ComponentColor, ComponentSize } from '@/components/sharedConstants';
 
-export type EventsTypes = {
+export type EventsTypes = Readonly<{
   click: undefined;
   input: string;
-}
+}>;
 
-export type PropsTypes = {
+export type PropsTypes = Readonly<{
   topLabelText?: string;
   bottomLabelText?: string;
   value?: string;
@@ -13,4 +13,14 @@ export type PropsTypes = {
   size: ComponentSize;
   disabled: boolean;
   uppercase: boolean;
-}
+}>;
+
+export const defaultProps: PropsTypes = {
+  topLabelText: undefined,
+  bottomLabelText: undefined,
+  value: undefined,
+  color: 'primary',
+  size: 'md',
+  disabled: false,
+  uppercase: false,
+};

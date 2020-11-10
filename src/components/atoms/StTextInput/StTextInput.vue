@@ -1,6 +1,7 @@
 <template lang="pug">
   .st-text-input-wrapper(:class="wrapperClasses")
-    slot(name="topLabel"): label.top-label {{ topLabelText }}
+    slot(name="topLabel")
+      label.top-label(:for="$attrs.id") {{ topLabelText }}
 
     .relative-input-wrapper
       input.input(
@@ -16,14 +17,15 @@
 
     transition(name="fade")
       .relative-bottom-wrapper(v-if="hasBottomLabel")
-        slot(name="bottomLabel"): label.bottom-label {{ bottomLabelText }}
+        slot(name="bottomLabel")
+          label.bottom-label(:for="$attrs.id") {{ bottomLabelText }}
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { RecordPropsDefinition } from 'vue/types/options.d';
 import { componentColors, componentSizes } from '@/components/sharedConstants';
-import { PropsTypes } from './StTextInput';
+import { PropsTypes, defaultProps } from './StTextInput';
 
 type Data = {}
 type Methods = {
@@ -37,43 +39,44 @@ type Computed = {
 }
 
 export default Vue.extend<Data, Methods, Computed, PropsTypes>({
+  inheritAttrs: false,
   props: {
     topLabelText: {
       type: String,
       required: true,
-      default: '',
+      default: defaultProps.topLabelText,
     },
     bottomLabelText: {
       type: String,
       required: true,
-      default: '',
+      default: defaultProps.bottomLabelText,
     },
     value: {
       type: String,
       required: false,
-      default: '',
+      default: defaultProps.value,
     },
     color: {
       type: String,
       required: false,
-      default: 'primary',
+      default: defaultProps.color,
       validator: (value) => componentColors.includes(value),
     },
     size: {
       type: String,
       required: false,
-      default: 'md',
+      default: defaultProps.size,
       validator: (value) => componentSizes.includes(value),
     },
     disabled: {
       type: Boolean,
       required: false,
-      default: false,
+      default: defaultProps.disabled,
     },
     uppercase: {
       type: Boolean,
       required: false,
-      default: false,
+      default: defaultProps.uppercase,
     },
   } as RecordPropsDefinition<PropsTypes>,
   computed: {
