@@ -5,7 +5,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import { RecordPropsDefinition } from 'vue/types/options.d';
-import { PropsTypes, iconKinds, iconNames } from './StIcon';
+import { PropsTypes, iconKinds } from './StIcon';
+import { iconNames } from './IconName';
 
 type Data = {}
 type Methods = {

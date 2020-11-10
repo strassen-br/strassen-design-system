@@ -64,7 +64,7 @@ export default {
       defaultValue: 'Bottom label text',
     },
     disabled: {
-      description: 'Whether the component should have a disabled style and not emit clicks',
+      description: 'Whether the field should be disabled style and not emit clicks or accept user input',
       table: { type: { summary: 'Boolean' } },
       control: { type: 'boolean' },
       defaultValue: false,

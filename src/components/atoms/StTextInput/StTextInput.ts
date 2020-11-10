@@ -1,4 +1,4 @@
-import { componentColors, componentSizes } from '@/components/sharedConstants';
+import { ComponentColor, ComponentSize } from '@/components/sharedConstants';
 
 export type EventsTypes = {
   click: undefined;
@@ -9,8 +9,8 @@ export type PropsTypes = {
   topLabelText?: string;
   bottomLabelText?: string;
   value?: string;
-  color: typeof componentColors[number];
-  size: typeof componentSizes[number];
+  color: ComponentColor;
+  size: ComponentSize;
   disabled: boolean;
   uppercase: boolean;
 }

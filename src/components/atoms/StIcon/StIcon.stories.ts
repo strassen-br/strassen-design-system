@@ -1,10 +1,6 @@
 import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
-import {
-  PropsTypes,
-  EventsTypes,
-  iconKinds,
-  iconNames,
-} from './StIcon';
+import { PropsTypes, EventsTypes, iconKinds } from './StIcon';
+import { iconNames } from './IconName';
 import StIcon from './StIcon.vue';
 
 /**
