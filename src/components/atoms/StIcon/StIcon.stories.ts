@@ -1,5 +1,10 @@
 import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
-import { PropsTypes, EventsTypes, iconKinds } from './StIcon';
+import {
+  PropsTypes,
+  EventsTypes,
+  iconKinds,
+  defaultProps,
+} from './StIcon';
 import { iconNames } from './IconName';
 import StIcon from './StIcon.vue';
 
@@ -18,17 +23,23 @@ export default {
   title: 'General/Icon',
   component: StIcon,
   argTypes: {
-    kind: {
-      description: 'Visual kind of the icon, defined in the Remix Icon lib',
-      table: { type: { summary: iconKinds.join(' | ') } },
-      control: { type: 'inline-radio', options: iconKinds },
-      defaultValue: 'fill',
-    },
     name: {
       description: 'Icon name from the Remix Icon lib',
-      table: { type: { summary: 'String' } },
+      table: {
+        type: { summary: 'String' },
+        defaultValue: { summary: defaultProps.name },
+      },
       control: { type: 'select', options: iconNames },
-      defaultValue: 'home-2',
+      defaultValue: defaultProps.name,
+    },
+    kind: {
+      description: 'Visual kind of the icon, defined in the Remix Icon lib',
+      table: {
+        type: { summary: iconKinds.join(' | ') },
+        defaultValue: { summary: defaultProps.kind },
+      },
+      control: { type: 'inline-radio', options: iconKinds },
+      defaultValue: defaultProps.kind,
     },
     click: {
       table: { type: false },
@@ -38,7 +49,7 @@ export default {
   parameters: {
     layout: 'centered',
     docs: {
-      source: { code: '<st-icon name="home-2" @click="doSomething" />' },
+      source: { code: '<st-icon name="home-2" v-on:click="doSomething" />' },
       description: {
         component: 'Basic icon component, uses the Remix Icon lib',
       },

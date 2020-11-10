@@ -5,7 +5,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { RecordPropsDefinition } from 'vue/types/options.d';
-import { PropsTypes, iconKinds } from './StIcon';
+import { PropsTypes, iconKinds, defaultProps } from './StIcon';
 import { iconNames } from './IconName';
 
 type Data = {}
@@ -21,12 +21,13 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     name: {
       type: String,
       required: true,
+      default: defaultProps.name,
       validator: (value) => iconNames.includes(value),
     },
     kind: {
       type: String,
       required: false,
-      default: 'fill',
+      default: defaultProps.kind,
       validator: (value) => iconKinds.includes(value),
     },
   } as RecordPropsDefinition<PropsTypes>,
