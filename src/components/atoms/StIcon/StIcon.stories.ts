@@ -1,12 +1,17 @@
-import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
 import {
+  Meta,
+  Story,
+  getEventArgType,
+  filterArgTypesWithControls,
+} from '@/storybook';
+import {
+  iconKinds,
   PropsTypes,
   EventsTypes,
-  iconKinds,
   defaultProps,
 } from './StIcon';
-import { iconNames } from './IconName';
 import StIcon from './StIcon.vue';
+import { iconNames } from './IconName';
 
 /**
  * Base template, used by other stories
@@ -41,10 +46,7 @@ export default {
       control: { type: 'inline-radio', options: iconKinds },
       defaultValue: defaultProps.kind,
     },
-    click: {
-      table: { type: false },
-      description: 'Emitted when the icon is clicked',
-    },
+    click: getEventArgType('Emitted when the icon is clicked'),
   },
   parameters: {
     layout: 'centered',

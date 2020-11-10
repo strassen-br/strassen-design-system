@@ -1,6 +1,12 @@
 import { actions } from '@storybook/addon-actions';
-import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
 import { componentColors } from '@/components/sharedConstants';
+import {
+  Meta,
+  Story,
+  getSlotArgType,
+  getEventArgType,
+  filterArgTypesWithControls,
+} from '@/storybook';
 import {
   PropsTypes,
   EventsTypes,
@@ -64,15 +70,8 @@ export default {
       control: { type: 'boolean' },
       defaultValue: defaultProps.disabled,
     },
-    click: {
-      table: { type: false },
-      description: 'Emitted when the button is clicked',
-    },
-    default: {
-      description: 'Content shown inside the button. Can contain html, custom components, etc',
-      table: { type: false },
-      control: { type: 'text' },
-    },
+    click: getEventArgType('Emitted when the button is clicked'),
+    default: getSlotArgType('Content shown inside the button. Can contain html, custom components, etc'),
   },
   parameters: {
     layout: 'centered',
