@@ -10,10 +10,11 @@ module.exports = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
   addons: [
+    'storybook-dark-mode/register',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/preset-typescript',
-    'storybook-dark-mode/register',
+    '@storybook/addon-a11y',
   ],
   webpackFinal: (config) => ({
     ...config,

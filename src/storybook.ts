@@ -56,7 +56,7 @@ interface ControlNumber {
 
 interface Table extends Disable {
   defaultValue?: Row;
-  type?: Row;
+  type?: Row | false;
 }
 
 interface Row {
@@ -138,5 +138,19 @@ export function filterArgTypesWithControls(argTypes: Record<string, any>): strin
     },
     [],
   );
+}
+
+export function getSlotArgType(description: string): EnhancedArgType<string> {
+  return {
+    description,
+    table: { type: false },
+    control: { type: 'text' },
+  };
+}
+export function getEventArgType(description: string, eventType?: string): EnhancedArgType<any> {
+  return {
+    description,
+    table: { type: eventType ? { summary: eventType.toString() } : false },
+  };
 }
 /* Stories helpers */
