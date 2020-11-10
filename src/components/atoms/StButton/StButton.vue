@@ -10,7 +10,7 @@
 import Vue from 'vue';
 import { RecordPropsDefinition } from 'vue/types/options.d';
 import { componentColors } from '@/components/sharedConstants';
-import { PropsTypes, buttonKinds } from './StButton';
+import { PropsTypes, buttonKinds, defaultProps } from './StButton';
 
 type Data = {}
 type Methods = {
@@ -22,27 +22,27 @@ type Computed = {
 
 export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   props: {
+    label: {
+      type: String,
+      required: false,
+      default: defaultProps.label,
+    },
     color: {
       type: String,
       required: false,
-      default: 'primary',
+      default: defaultProps.color,
       validator: (value) => componentColors.includes(value),
     },
     kind: {
       type: String,
       required: false,
-      default: 'filled',
+      default: defaultProps.kind,
       validator: (value) => buttonKinds.includes(value),
-    },
-    label: {
-      type: String,
-      required: false,
-      default: undefined,
     },
     disabled: {
       type: Boolean,
       required: false,
-      default: false,
+      default: defaultProps.disabled,
     },
   } as RecordPropsDefinition<PropsTypes>,
   computed: {

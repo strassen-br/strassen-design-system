@@ -3,13 +3,20 @@ import { ComponentColor } from '@/components/sharedConstants';
 export const buttonKinds = <const> ['filled', 'outline'];
 export type ButtonKind = typeof buttonKinds[number];
 
-export type EventsTypes = {
+export type EventsTypes = Readonly<{
   click: undefined;
-}
+}>;
 
-export type PropsTypes = {
+export type PropsTypes = Readonly<{
   label?: string;
   color: ComponentColor;
   kind: ButtonKind;
   disabled: boolean;
-}
+}>;
+
+export const defaultProps: PropsTypes = <const> {
+  label: undefined,
+  color: 'primary',
+  kind: 'filled',
+  disabled: false,
+};
