@@ -19,7 +19,8 @@ type Methods = {
   emitClick: () => void;
 };
 type Computed = {
-  wrapperClasses: string;
+  underlineClass: string;
+  wrapperClasses: string[];
 };
 export type Events = {
   click: void;
@@ -62,15 +63,27 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     },
   } as RecordPropsDefinition<PropsTypes>,
   computed: {
+    underlineClass() {
+      switch (this.underlineBehavior) {
+        case 'always': return 'underline';
+        case 'on-hover': return 'underline-on-hover';
+        default:
+        case 'never': return 'no-underline';
+      }
+    },
     wrapperClasses() {
-      const colorClass = this.color;
+      const { color: colorClass, size: sizeClass, underlineClass } = this;
       const disabledClass = this.disabled ? 'disabled' : '';
       const uppercaseClass = this.uppercase ? 'uppercase' : '';
-      return `st-link-wrapper ${colorClass} ${disabledClass} ${uppercaseClass}`;
-      // [this.kind]: true,
-      // uppercase: this.uppercase,
-      // 'no-underline': this.noUnderline,
-      // };
+
+      return [
+        'st-link-wrapper',
+        sizeClass,
+        colorClass,
+        underlineClass,
+        disabledClass,
+        uppercaseClass,
+      ];
     },
   },
   methods: {
@@ -83,33 +96,70 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
 <style lang="postcss" scoped>
 .st-link-wrapper {
-  @apply text-sm transition-all duration-200 rounded-sm font-bold;
-  &.primary, &.accent {
-    &:focus:not(.no-underline),
-    &:hover:not(.no-underline),
-    &:active:not(.no-underline) {
-      @apply underline;
+  @apply transition-all duration-200 font-normal outline-none p-1;
+
+  &.underline:not(.disabled),
+  &.underline-on-hover:hover:not(.disabled) {
+    @apply underline;
+  }
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &.xs {
+    @apply text-xs;
+  }
+  &.sm {
+    @apply text-sm;
+  }
+  &.md {
+    @apply text-base;
+  }
+
+  &.uppercase {
+    @apply uppercase tracking-tighter font-bold;
+  }
+
+  &.disabled {
+    @apply cursor-not-allowed no-underline;
+  }
+}
+
+.st-link-wrapper,
+.light .st-link-wrapper {
+  &.primary {
+    @apply text-black;
+    &:focus:not(.disabled) {
+      @apply shadow-outline-black;
+    }
+    &:hover:not(.disabled) {
+      @apply text-opacity-70;
+    }
+    &:active:not(.disabled) {
+      @apply text-opacity-50;
+    }
+    &.disabled {
+      @apply text-opacity-40;
     }
   }
 }
 
-.light .st-link-wrapper {
-  &.primary, &.accent {
-    &:focus, &:hover { @apply text-opacity-60 shadow-none }
-    &:active { @apply text-opacity-80 }
-  }
-
-  &.primary { @apply text-black }
-  &.accent { @apply text-brand-purple }
-}
-
 .dark .st-link-wrapper {
-  &.primary, &.accent {
-    &:focus, &:hover { @apply text-opacity-60 shadow-none }
-    &:active { @apply text-opacity-80 }
+  &.primary {
+    @apply text-white;
+    &:focus:not(.disabled) {
+      @apply shadow-outline-white;
+    }
+    &:hover:not(.disabled) {
+      @apply text-opacity-70;
+    }
+    &:active:not(.disabled) {
+      @apply text-opacity-50;
+    }
+    &.disabled {
+      @apply text-opacity-40;
+    }
   }
-
-  &.primary { @apply text-white }
-  &.accent { @apply text-brand-yellow }
 }
 </style>
