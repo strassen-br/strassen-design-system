@@ -6,6 +6,7 @@ import './assets/index.css';
 // atoms
 import StButton from './components/atoms/StButton/StButton.vue';
 import StIcon from './components/atoms/StIcon/StIcon.vue';
+import StLink from './components/atoms/StLink/StLink.vue';
 // molecules
 // organisms
 
@@ -13,6 +14,7 @@ import StIcon from './components/atoms/StIcon/StIcon.vue';
 export function install(Vue: VueConstructor) {
   Vue.component('StButton', StButton);
   Vue.component('StIcon', StIcon);
+  Vue.component('StLink', StLink);
 }
 
 // This allows the user to independently register components
@@ -20,6 +22,7 @@ export {
   // atoms
   StButton,
   StIcon,
+  StLink,
   // molecules
   // organisms
 };
