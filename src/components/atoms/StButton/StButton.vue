@@ -86,10 +86,10 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 
   &:hover {
-    @apply bg-opacity-70;
+    @apply bg-opacity-80 text-opacity-70;
   }
   &:active {
-    @apply bg-opacity-100;
+    @apply bg-opacity-60;
   }
   &:focus, &:focus-within {
     @apply shadow-outline-black ease-out;
@@ -108,10 +108,10 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     }
 
     &:hover {
-    @apply border-opacity-50 text-opacity-50;
+    @apply border-opacity-60 text-opacity-60;
     }
     &:active {
-      @apply border-opacity-100 text-opacity-100;
+      @apply border-opacity-40 text-opacity-40;
     }
   }
 }
@@ -129,7 +129,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 
   &:hover {
-    @apply bg-opacity-80;
+    @apply bg-opacity-80 text-opacity-70;
   }
   &:active {
     @apply bg-opacity-60;

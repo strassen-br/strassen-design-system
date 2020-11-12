@@ -46,6 +46,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 </script>
 
 <style lang="postcss" scoped>
+.st-icon-wrapper,
 .light .st-icon-wrapper {
   @apply text-black;
 }
