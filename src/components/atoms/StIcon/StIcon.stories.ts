@@ -1,3 +1,4 @@
+import { actions } from '@storybook/addon-actions';
 import {
   Meta,
   Story,
@@ -19,7 +20,8 @@ import { iconNames } from './IconName';
 const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
   props: filterArgTypesWithControls(argTypes),
   components: { StIcon },
-  template: '<st-icon v-bind="$props" />',
+  methods: actions('click'),
+  template: '<st-icon v-bind="$props" @click="click" />',
 }));
 
 export const Base = Template.bind({});

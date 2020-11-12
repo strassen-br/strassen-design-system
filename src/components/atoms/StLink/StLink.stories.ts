@@ -1,6 +1,12 @@
+import { actions } from '@storybook/addon-actions';
 import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
 import {
-  PropsTypes, EventsTypes, underlineBehaviors, linkColors, linkSizes, defaultProps,
+  linkSizes,
+  linkColors,
+  PropsTypes,
+  EventsTypes,
+  defaultProps,
+  underlineBehaviors,
 } from './StLink';
 import StLink from './StLink.vue';
 
@@ -10,7 +16,8 @@ import StLink from './StLink.vue';
 const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
   props: filterArgTypesWithControls(argTypes),
   components: { StLink },
-  template: '<st-link v-bind="$props" />',
+  methods: actions('click'),
+  template: '<st-link v-bind="$props" @click="click" />',
 }));
 
 export const Base = Template.bind({});
