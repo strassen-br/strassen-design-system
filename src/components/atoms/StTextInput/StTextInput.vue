@@ -100,6 +100,10 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   methods: {
     emitInput(event) {
       this.$emit('input', (event.target as HTMLInputElement).value);
+      // this makes sure the dom is updated
+      // even if the new value from props is equal to the old
+      // this can happen when parents use masks
+      this.$forceUpdate();
     },
     emitClickIfNotDisabled() {
       if (this.disabled) return;
