@@ -13,5 +13,50 @@
       "color",
       "click"
     ]
+  },
+  "st-link": {
+    "description": "Clickable simple text link",
+    "attributes": [
+      "label",
+      "color",
+      "size",
+      "underline-behavior",
+      "disabled",
+      "uppercase",
+      "click"
+    ],
+    "defaults": [
+      "label",
+      "click"
+    ]
+  },
+  "st-text-input": {
+    "description": "Base text input",
+    "attributes": [
+      "top-label-text",
+      "bottom-label-text",
+      "value",
+      "color",
+      "size",
+      "disabled",
+      "uppercase",
+      "click",
+      "input"
+    ],
+    "defaults": [
+      "topLabelText"
+    ]
+  },
+  "st-icon": {
+    "description": "Remix Icon",
+    "attributes": [
+      "name",
+      "kind",
+      "click"
+    ],
+    "defaults": [
+      "name",
+      "kind"
+    ]
   }
 }
