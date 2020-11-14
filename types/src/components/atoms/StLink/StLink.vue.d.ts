@@ -10,11 +10,11 @@ declare type Computed = {
 export declare type Events = {
     click: void;
 };
-declare const _default: import('vue/types/vue').ExtendedVue<Vue, Data, Methods, Computed, Readonly<{
-    label?: string | undefined;
-    color: 'primary';
-    size: 'xs' | 'sm' | 'md';
-    underlineBehavior: 'never' | 'on-hover' | 'always';
+declare const _default: import("vue/types/vue").ExtendedVue<Vue, Data, Methods, Computed, Readonly<{
+    label: string;
+    color: "primary";
+    size: "xs" | "sm" | "md";
+    underlineBehavior: "never" | "on-hover" | "always";
     disabled: boolean;
     uppercase: boolean;
 }>>;

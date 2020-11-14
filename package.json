@@ -32,7 +32,6 @@
     "build-pack-lib": "vue-cli-service build --target lib src/main.ts && npm pack",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "lint-declaration": "vue-cli-service lint --fix types/**/*.d.ts",
     "storybook": "start-storybook -s ./static -p 6006 --no-dll",
     "build-storybook": "build-storybook --no-dll"
   },

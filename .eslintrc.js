@@ -39,6 +39,7 @@ module.exports = {
         'types/**/*.d.ts?(x)',
       ],
       rules: {
+        quotes: 'off',
         'max-len': 'off',
         'no-underscore-dangle': 'off',
         'import/extensions': 'off',

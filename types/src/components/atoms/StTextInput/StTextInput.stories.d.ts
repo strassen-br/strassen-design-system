@@ -3,8 +3,8 @@ export declare const Base: Story<Readonly<{
     topLabelText?: string | undefined;
     bottomLabelText?: string | undefined;
     value?: string | undefined;
-    color: import('../../sharedConstants').ComponentColor;
-    size: import('../../sharedConstants').ComponentSize;
+    color: import("../../sharedConstants").ComponentColor;
+    size: import("../../sharedConstants").ComponentSize;
     disabled: boolean;
     uppercase: boolean;
 }> & Readonly<{
@@ -15,8 +15,8 @@ declare const _default: Meta<Readonly<{
     topLabelText?: string | undefined;
     bottomLabelText?: string | undefined;
     value?: string | undefined;
-    color: import('../../sharedConstants').ComponentColor;
-    size: import('../../sharedConstants').ComponentSize;
+    color: import("../../sharedConstants").ComponentColor;
+    size: import("../../sharedConstants").ComponentSize;
     disabled: boolean;
     uppercase: boolean;
 }> & Readonly<{

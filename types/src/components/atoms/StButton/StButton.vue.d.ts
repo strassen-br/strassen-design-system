@@ -6,10 +6,10 @@ declare type Methods = {
 declare type Computed = {
     wrapperClasses: string;
 };
-declare const _default: import('vue/types/vue').ExtendedVue<Vue, Data, Methods, Computed, Readonly<{
+declare const _default: import("vue/types/vue").ExtendedVue<Vue, Data, Methods, Computed, Readonly<{
     label?: string | undefined;
-    color: import('../../sharedConstants').ComponentColor;
-    kind: 'filled' | 'outline';
+    color: import("../../sharedConstants").ComponentColor;
+    kind: "filled" | "outline";
     disabled: boolean;
 }>>;
 export default _default;
