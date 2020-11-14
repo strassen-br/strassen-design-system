@@ -5,8 +5,8 @@ import {
   getSlotArgType,
   getEventArgType,
   filterArgTypesWithControls,
-} from '@/storybook';
-import { componentColors, componentSizes } from '@/components/sharedConstants';
+} from '../../../storybook';
+import { componentColors, componentSizes } from '../../sharedConstants';
 import { PropsTypes, EventsTypes, defaultProps } from './StTextInput';
 import StTextInput from './StTextInput.vue';
 

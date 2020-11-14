@@ -4,7 +4,7 @@ import {
   Story,
   getEventArgType,
   filterArgTypesWithControls,
-} from '@/storybook';
+} from '../../../storybook';
 import {
   iconKinds,
   PropsTypes,

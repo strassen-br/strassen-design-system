@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // waiting on official types but until then we can augment them a bit.
 // see https://github.com/storybookjs/storybook/issues/11916
 import { transform, camelCase } from 'lodash';

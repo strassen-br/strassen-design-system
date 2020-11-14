@@ -1,5 +1,5 @@
 import { actions } from '@storybook/addon-actions';
-import { Meta, Story, filterArgTypesWithControls } from '@/storybook';
+import { Meta, Story, filterArgTypesWithControls } from '../../../storybook';
 import {
   linkSizes,
   linkColors,

@@ -1,12 +1,11 @@
 import { actions } from '@storybook/addon-actions';
-import { componentColors } from '@/components/sharedConstants';
 import {
   Meta,
   Story,
   getSlotArgType,
   getEventArgType,
   filterArgTypesWithControls,
-} from '@/storybook';
+} from '../../../storybook';
 import {
   PropsTypes,
   EventsTypes,
@@ -14,6 +13,7 @@ import {
   defaultProps,
 } from './StButton';
 import StButton from './StButton.vue';
+import { componentColors } from '../../sharedConstants';
 
 /**
  * Base template, used by other stories

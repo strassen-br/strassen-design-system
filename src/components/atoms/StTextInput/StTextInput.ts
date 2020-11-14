@@ -1,4 +1,4 @@
-import { ComponentColor, ComponentSize } from '@/components/sharedConstants';
+import { ComponentColor, ComponentSize } from '../../sharedConstants';
 
 export type EventsTypes = Readonly<{
   click: undefined;

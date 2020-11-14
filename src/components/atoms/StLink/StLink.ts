@@ -1,4 +1,4 @@
-import { ComponentColor, ComponentSize, UnionSubset } from '@/components/sharedConstants';
+import { ComponentColor, ComponentSize, UnionSubset } from '../../sharedConstants';
 
 export type LinkColor = UnionSubset<ComponentColor, 'primary'>;
 export const linkColors: readonly LinkColor[] = ['primary'];
@@ -14,7 +14,7 @@ export type EventsTypes = Readonly<{
 }>
 
 export type PropsTypes = Readonly<{
-  label?: string;
+  label: string;
   color: LinkColor;
   size: LinkSize;
   underlineBehavior: UnderlineBehavior;
@@ -23,7 +23,7 @@ export type PropsTypes = Readonly<{
 }>
 
 export const defaultProps: PropsTypes = {
-  label: undefined,
+  label: '',
   color: 'primary',
   size: 'md',
   underlineBehavior: 'always',

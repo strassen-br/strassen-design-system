@@ -1,4 +1,4 @@
-import { ComponentColor } from '@/components/sharedConstants';
+import { ComponentColor } from '../../sharedConstants';
 
 export const buttonKinds = <const> ['filled', 'outline'];
 export type ButtonKind = typeof buttonKinds[number];
