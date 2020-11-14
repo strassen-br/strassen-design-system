@@ -63,6 +63,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 <style lang="postcss" scoped>
 .st-button-wrapper {
   @apply flex px-5 py-3
+  border-2 border-transparent
   cursor-pointer outline-none
   uppercase text-xs font-semibold
   transition-all duration-200 ease-in;
@@ -96,7 +97,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 
   &.outline {
-    @apply text-black bg-transparent border-2;
+    @apply text-black bg-transparent;
     &.primary {
       @apply border-black;
     }
