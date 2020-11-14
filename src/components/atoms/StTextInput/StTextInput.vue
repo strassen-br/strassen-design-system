@@ -8,9 +8,7 @@
         v-bind="$attrs"
         :disabled="disabled"
         :value="value"
-        v-on="$listeners"
-        @input="emitInput"
-        @click="emitClickIfNotDisabled"
+        v-on="inputListeners"
       )
       .left-slot: slot(name="left")
       .right-slot: slot(name="right")
@@ -36,6 +34,7 @@ type Computed = {
   wrapperClasses: string;
   hasTopLabel: boolean;
   hasBottomLabel: boolean;
+  inputListeners: Record<string, Function>;
 }
 
 export default Vue.extend<Data, Methods, Computed, PropsTypes>({
@@ -95,6 +94,13 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
       return (this.bottomLabelText || '') !== ''
           || this.$slots.bottomLabel !== undefined
           || this.$scopedSlots.bottomLabel !== undefined;
+    },
+    inputListeners() {
+      return {
+        ...this.$listeners,
+        input: this.emitInput,
+        click: this.emitClickIfNotDisabled,
+      };
     },
   },
   methods: {
