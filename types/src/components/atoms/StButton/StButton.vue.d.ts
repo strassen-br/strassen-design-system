@@ -1,5 +1,4 @@
 import Vue from 'vue';
-
 declare type Data = {};
 declare type Methods = {
     emitClickIfNotDisabled: () => void;

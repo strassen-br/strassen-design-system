@@ -1,5 +1,4 @@
-import { Meta, Story } from '@/storybook';
-
+import { Meta, Story } from '../../../storybook';
 export declare const Base: Story<Readonly<{
     label?: string | undefined;
     color: import('../../sharedConstants').ComponentColor;
