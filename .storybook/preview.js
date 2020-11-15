@@ -1,10 +1,10 @@
 import Vue from 'vue';
-import Notifications from 'vue-notification';
+import NotificationSSR from 'vue-notification/dist/ssr';
 import '../src/assets/index.css';
 import 'remixicon/fonts/remixicon.css'
 import { dark, light } from './strassenTheme';
 
-Vue.use(Notifications);
+Vue.use(NotificationSSR);
 
 export const parameters = {
   darkMode: {

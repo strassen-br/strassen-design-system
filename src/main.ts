@@ -1,6 +1,8 @@
 import { VueConstructor } from 'vue';
 import 'remixicon/fonts/remixicon.css';
-import Notification from 'vue-notification';
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
+import NotificationSSR from 'vue-notification/dist/ssr';
 
 import './assets/index.css';
 
@@ -15,7 +17,7 @@ import StNotificationGroup from './components/atoms/StNotification/StNotificatio
 
 // This allows the user to do Vue.use(st) and register all the components
 export function install(Vue: VueConstructor) {
-  Vue.use(Notification);
+  Vue.use(NotificationSSR);
 
   Vue.component('StButton', StButton);
   Vue.component('StIcon', StIcon);

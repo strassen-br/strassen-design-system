@@ -66,19 +66,34 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 <style lang="postcss" scoped>
 
 .st-notification-group {
-  @apply m-5;
+  @apply m-5 block fixed z-50;
 
   & >>> .st-notification {
-    @apply p-2 mt-2 text-sm border-1;
+    @apply block p-2 mt-2 box-border text-left text-sm border-1;
+
+    .notification-title {
+      @apply font-bold;
+    }
+  }
+
+  & >>> .vue-notification-wrapper {
+    @apply block overflow-hidden w-full m-0 p-0 transition-all duration-300;
+  }
+
+  & >>> .vn-fade-enter-active,
+  & >>> .vn-fade-leave-active,
+  & >>> .vn-fade-move  {
+    @apply transition-all duration-500;
+  }
+
+  & >>> .vn-fade-enter,
+  & >>> .vn-fade-leave-to {
+    @apply opacity-0;
   }
 }
 
 .light .st-notification-group >>> .st-notification {
   @apply bg-white text-black border-black shadow-lg;
-
-  .notification-title {
-    @apply mb-2;
-  }
 
   &.primary {
     @apply bg-white text-black border-black shadow-lg;
