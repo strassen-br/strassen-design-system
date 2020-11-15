@@ -35,7 +35,7 @@ export const Base: Story<StNotificationOptions> = ((args, { argTypes }) => ({
     <st-link label="Show notification" @click="showNotification" />
     <pre class="bg-gray-800 text-blue-300 p-3"><code>\
 <span class="text-purple-500">Vue.notify(</span>\
-  {{ configObjectString }}\
+{{ configObjectString }}\
 <span class="text-purple-500">);</span>
 
   <strong class="text-red-500">OR</strong>
