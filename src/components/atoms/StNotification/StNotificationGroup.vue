@@ -64,15 +64,14 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 </script>
 
 <style lang="postcss" scoped>
-
 .st-notification-group {
-  @apply m-5 block fixed z-50;
+  @apply block fixed z-50;
 
   & >>> .st-notification {
-    @apply block p-2 mt-2 box-border text-left text-sm border-1;
+    @apply block px-4 py-3 mt-2 box-border text-left text-sm border-1;
 
     .notification-title {
-      @apply font-bold;
+      @apply font-extrabold text-base;
     }
   }
 
@@ -108,5 +107,11 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
 .dark .st-notification-group >>> .st-notification {
   @apply bg-gray-900 text-white border-white shadow-lg-invert;
+}
+
+@screen sm {
+  .st-notification-group {
+    @apply m-5;
+  }
 }
 </style>
