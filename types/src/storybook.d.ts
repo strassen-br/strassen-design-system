@@ -92,4 +92,5 @@ export interface Meta<ComponentPropsTypes> extends EnhancedAnnotations<Component
 export declare function filterArgTypesWithControls(argTypes: Record<string, any>): string[];
 export declare function getSlotArgType(description: string): EnhancedArgType<string>;
 export declare function getEventArgType(description: string, eventType?: string): EnhancedArgType<any>;
+export declare function joinWithPipe(elements: readonly unknown[]): string;
 export {};

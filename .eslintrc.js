@@ -34,20 +34,5 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
       },
     },
-    {
-      files: [
-        'types/**/*.d.ts?(x)',
-      ],
-      rules: {
-        quotes: 'off',
-        'max-len': 'off',
-        'no-underscore-dangle': 'off',
-        'import/extensions': 'off',
-        'import/no-unresolved': 'off',
-        'import/newline-after-import': 'off',
-        '@typescript-eslint/camelcase': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-      },
-    },
   ],
 };

@@ -9,6 +9,7 @@ import StButton from './components/atoms/StButton/StButton.vue';
 import StIcon from './components/atoms/StIcon/StIcon.vue';
 import StLink from './components/atoms/StLink/StLink.vue';
 import StTextInput from './components/atoms/StTextInput/StTextInput.vue';
+import StNotificationGroup from './components/atoms/StNotification/StNotificationGroup.vue';
 // molecules
 // organisms
 
@@ -20,6 +21,7 @@ export function install(Vue: VueConstructor) {
   Vue.component('StIcon', StIcon);
   Vue.component('StLink', StLink);
   Vue.component('StTextInput', StTextInput);
+  Vue.component('StNotificationGroup', StNotificationGroup);
 }
 
 // This allows the user to independently register components
@@ -29,6 +31,7 @@ export {
   StIcon,
   StLink,
   StTextInput,
+  StNotificationGroup,
   // molecules
   // organisms
 };

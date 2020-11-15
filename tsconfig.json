@@ -13,6 +13,7 @@
     "baseUrl": ".",
     "declaration": true,
     "declarationDir": "types",
+    "outDir": "dist",
     "types": [
       "webpack-env",
       "jest",
@@ -26,13 +27,16 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./tests/**/*.ts",
+    "./tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "./src/**/*.stories.ts",
+    "./types/**/*",
+    "./dist/**/*"
   ]
 }
