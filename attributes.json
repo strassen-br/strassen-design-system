@@ -96,6 +96,31 @@
     "description": "Emitted when the user types in the field",
     "type": "function"
   },
+  "st-notification-group/group": {
+    "description": "Group identifier"
+  },
+  "st-notification-group/position": {
+    "description": "Which side of the screen the notifications from this group should appear at",
+    "options": [
+      "top left",
+      "top center",
+      "top right",
+      "bottom left",
+      "bottom center",
+      "bottom right"
+    ]
+  },
+  "st-notification-group/duration-in-ms": {
+    "description": "How long the notifications from this group should be visible, -1 for always visible"
+  },
+  "st-notification-group/close-on-click": {
+    "description": "If notifications from this group should close when clicked",
+    "type": "boolean"
+  },
+  "st-notification-group/ignore-duplicates": {
+    "description": "If notifications from this group should not be created when an identical notification exists",
+    "type": "boolean"
+  },
   "st-icon/kind": {
     "description": "Icon style from the Remix Icon Lib, default: fill",
     "options": [

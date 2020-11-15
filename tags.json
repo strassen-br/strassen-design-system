@@ -30,6 +30,16 @@
       "click"
     ]
   },
+  "st-notification-group": {
+    "description": "Wrapper for notifications generated when calling $notify",
+    "attributes": [
+      "group",
+      "position",
+      "duration-in-ms",
+      "close-on-click",
+      "ignore-duplicates"
+    ]
+  },
   "st-text-input": {
     "description": "Base text input",
     "attributes": [
