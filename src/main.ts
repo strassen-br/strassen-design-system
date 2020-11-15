@@ -1,5 +1,6 @@
 import { VueConstructor } from 'vue';
 import 'remixicon/fonts/remixicon.css';
+import Notification from 'vue-notification';
 
 import './assets/index.css';
 
@@ -13,6 +14,8 @@ import StTextInput from './components/atoms/StTextInput/StTextInput.vue';
 
 // This allows the user to do Vue.use(st) and register all the components
 export function install(Vue: VueConstructor) {
+  Vue.use(Notification);
+
   Vue.component('StButton', StButton);
   Vue.component('StIcon', StIcon);
   Vue.component('StLink', StLink);

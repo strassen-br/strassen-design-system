@@ -42,7 +42,8 @@
     "lodash": "^4.17.20",
     "remixicon": "^2.5.0",
     "tailwindcss": "^1.9.6",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-notification": "^1.3.20"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
