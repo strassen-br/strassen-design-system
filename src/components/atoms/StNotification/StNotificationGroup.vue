@@ -94,9 +94,6 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 .light .st-notification-group >>> .st-notification {
   @apply bg-white text-black border-black shadow-lg;
 
-  &.primary {
-    @apply bg-white text-black border-black shadow-lg;
-  }
   &.danger {
     @apply border-danger-light text-danger-light;
   }
@@ -107,6 +104,13 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
 .dark .st-notification-group >>> .st-notification {
   @apply bg-gray-900 text-white border-white shadow-lg-invert;
+
+  &.danger {
+    @apply border-danger-dark text-danger-dark;
+  }
+  &.success {
+    @apply border-success-dark text-success-dark;
+  }
 }
 
 @screen sm {
