@@ -58,7 +58,7 @@ export default {
     durationInMs: {
       description: `How long the notifications inside this group should be visible
       (not counting the fade in animation).
-      A **-1** value means the notifications should be always be visible.
+      A **-1** value means the notifications should always be visible.
       **Don't use a -1 value without enabling \`closeOnClick\`**
       `,
       table: {

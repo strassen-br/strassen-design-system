@@ -76,6 +76,10 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 .light .st-notification-group >>> .st-notification {
   @apply bg-white text-black border-black shadow-lg;
 
+  .notification-title {
+    @apply mb-2;
+  }
+
   &.primary {
     @apply bg-white text-black border-black shadow-lg;
   }
