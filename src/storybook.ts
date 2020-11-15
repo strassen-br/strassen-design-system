@@ -154,4 +154,8 @@ export function getEventArgType(description: string, eventType?: string): Enhanc
     table: { type: eventType ? { summary: eventType.toString() } : false },
   };
 }
+
+export function joinWithPipe(elements: readonly unknown[]): string {
+  return (elements || []).join(' | ');
+}
 /* Stories helpers */

@@ -2,6 +2,7 @@ import { actions } from '@storybook/addon-actions';
 import {
   Meta,
   Story,
+  joinWithPipe,
   getEventArgType,
   filterArgTypesWithControls,
 } from '../../../storybook';
@@ -42,7 +43,7 @@ export default {
     kind: {
       description: 'Visual kind of the icon, defined in the Remix Icon lib',
       table: {
-        type: { summary: iconKinds.join(' | ') },
+        type: { summary: joinWithPipe(iconKinds) },
         defaultValue: { summary: defaultProps.kind },
       },
       control: { type: 'inline-radio', options: iconKinds },

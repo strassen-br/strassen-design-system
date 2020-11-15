@@ -1,5 +1,10 @@
 import { actions } from '@storybook/addon-actions';
-import { Meta, Story, filterArgTypesWithControls } from '../../../storybook';
+import {
+  Meta,
+  Story,
+  joinWithPipe,
+  filterArgTypesWithControls,
+} from '../../../storybook';
 import {
   linkSizes,
   linkColors,
@@ -38,7 +43,7 @@ export default {
     color: {
       description: 'Link color',
       table: {
-        type: { summary: linkColors.join(' | ') },
+        type: { summary: joinWithPipe(linkColors) },
         defaultValue: { summary: defaultProps.color },
       },
       control: { type: 'inline-radio', options: linkColors },
@@ -47,7 +52,7 @@ export default {
     underlineBehavior: {
       description: 'Behavior of the underline decoration',
       table: {
-        type: { summary: underlineBehaviors.join(' | ') },
+        type: { summary: joinWithPipe(underlineBehaviors) },
         defaultValue: { summary: defaultProps.underlineBehavior },
       },
       control: { type: 'inline-radio', options: underlineBehaviors },
@@ -56,7 +61,7 @@ export default {
     size: {
       description: 'Link text size',
       table: {
-        type: { summary: linkSizes.join(' | ') },
+        type: { summary: joinWithPipe(linkSizes) },
         defaultValue: { summary: defaultProps.size },
       },
       control: { type: 'inline-radio', options: linkSizes },

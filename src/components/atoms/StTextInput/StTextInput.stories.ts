@@ -2,6 +2,7 @@ import { actions } from '@storybook/addon-actions';
 import {
   Meta,
   Story,
+  joinWithPipe,
   getSlotArgType,
   getEventArgType,
   filterArgTypesWithControls,
@@ -109,7 +110,7 @@ export default {
     color: {
       description: 'Input color, used to show validation state',
       table: {
-        type: { summary: componentColors.join(' | ') },
+        type: { summary: joinWithPipe(componentColors) },
         defaultValue: { summary: defaultProps.color },
       },
       control: { type: 'inline-radio', options: componentColors },
@@ -118,7 +119,7 @@ export default {
     size: {
       description: 'Size of the text input',
       table: {
-        type: { summary: componentSizes.join(' | ') },
+        type: { summary: joinWithPipe(componentSizes) },
         defaultValue: { summary: defaultProps.size },
       },
       control: { type: 'inline-radio', options: componentSizes },

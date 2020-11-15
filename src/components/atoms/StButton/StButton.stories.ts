@@ -2,6 +2,7 @@ import { actions } from '@storybook/addon-actions';
 import {
   Meta,
   Story,
+  joinWithPipe,
   getSlotArgType,
   getEventArgType,
   filterArgTypesWithControls,
@@ -46,7 +47,7 @@ export default {
     color: {
       description: 'Button color',
       table: {
-        type: { summary: componentColors.join(' | ') },
+        type: { summary: joinWithPipe(componentColors) },
         defaultValue: { summary: defaultProps.color },
       },
       control: { type: 'inline-radio', options: componentColors },
@@ -55,7 +56,7 @@ export default {
     kind: {
       description: 'Visual kind of the button. Used to make it more or less noticeable',
       table: {
-        type: { summary: buttonKinds.join(' | ') },
+        type: { summary: joinWithPipe(buttonKinds) },
         defaultValue: { summary: defaultProps.kind },
       },
       control: { type: 'inline-radio', options: buttonKinds },

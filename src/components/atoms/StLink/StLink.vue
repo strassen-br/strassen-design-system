@@ -36,7 +36,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     underlineBehavior: {
       type: String,
       required: false,
-      default: defaultProps.label,
+      default: defaultProps.underlineBehavior,
       validator: (value) => underlineBehaviors.includes(value),
     },
     color: {
