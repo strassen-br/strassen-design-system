@@ -9,7 +9,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { RecordPropsDefinition } from 'vue/types/options.d';
-import { componentColors } from '@/components/sharedConstants';
+import { componentColors } from '../../sharedConstants';
 import { PropsTypes, buttonKinds, defaultProps } from './StButton';
 
 type Data = {}

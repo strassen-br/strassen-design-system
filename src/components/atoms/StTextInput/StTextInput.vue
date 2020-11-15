@@ -22,7 +22,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { RecordPropsDefinition } from 'vue/types/options.d';
-import { componentColors, componentSizes } from '@/components/sharedConstants';
+import { componentColors, componentSizes } from '../../sharedConstants';
 import { PropsTypes, defaultProps } from './StTextInput';
 
 type Data = {}
