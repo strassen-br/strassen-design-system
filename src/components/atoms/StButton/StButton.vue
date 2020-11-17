@@ -109,10 +109,30 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     }
 
     &:hover {
-    @apply border-opacity-60 text-opacity-60;
+      @apply border-opacity-60 text-opacity-60;
     }
     &:active {
       @apply border-opacity-40 text-opacity-40;
+    }
+  }
+
+  &.text-only {
+    @apply bg-transparent border-transparent;
+    &.primary {
+      @apply text-black;
+    }
+    &.danger {
+      @apply text-danger-light;
+    }
+    &.success {
+      @apply text-success-light;
+    }
+
+    &:hover {
+      @apply text-opacity-60;
+    }
+    &:active {
+      @apply text-opacity-40;
     }
   }
 }
@@ -152,10 +172,30 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     }
 
     &:hover {
-    @apply border-opacity-70 text-opacity-70;
+      @apply border-opacity-70 text-opacity-70;
     }
     &:active {
       @apply border-opacity-50 text-opacity-50;
+    }
+  }
+
+  &.text-only {
+    @apply bg-transparent border-transparent;
+    &.primary {
+      @apply text-white;
+    }
+    &.danger {
+      @apply text-danger-dark;
+    }
+    &.success {
+      @apply text-success-dark;
+    }
+
+    &:hover {
+      @apply text-opacity-60;
+    }
+    &:active {
+      @apply text-opacity-40;
     }
   }
 }

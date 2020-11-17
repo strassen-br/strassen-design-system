@@ -1,6 +1,6 @@
 import { ComponentColor } from '../../sharedConstants';
 
-export const buttonKinds = <const> ['filled', 'outline'];
+export const buttonKinds = <const> ['filled', 'outline', 'text-only'];
 export type ButtonKind = typeof buttonKinds[number];
 
 export type EventsTypes = Readonly<{
