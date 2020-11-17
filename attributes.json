@@ -15,7 +15,8 @@
     "description": "Kind of the button, used to make it more or less noticeable, default: filled",
     "options": [
       "filled",
-      "outline"
+      "outline",
+      "text-only"
     ]
   },
   "st-button/label": {
