@@ -9,7 +9,7 @@ declare type Computed = {
 declare const _default: import("vue/types/vue").ExtendedVue<Vue, Data, Methods, Computed, Readonly<{
     label?: string | undefined;
     color: import("../../sharedConstants").ComponentColor;
-    kind: "filled" | "outline";
+    kind: "filled" | "outline" | "text-only";
     disabled: boolean;
 }>>;
 export default _default;

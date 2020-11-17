@@ -1,4 +1,4 @@
-import { ComponentColor } from './src/components/sharedConstants.d';
+import { ComponentColor } from './components/sharedConstants.d';
 
 export interface StNotificationOptions {
   title?: string;

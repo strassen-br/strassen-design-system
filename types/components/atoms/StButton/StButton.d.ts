@@ -1,5 +1,5 @@
 import { ComponentColor } from '../../sharedConstants';
-export declare const buttonKinds: readonly ["filled", "outline"];
+export declare const buttonKinds: readonly ["filled", "outline", "text-only"];
 export declare type ButtonKind = typeof buttonKinds[number];
 export declare type EventsTypes = Readonly<{
     click: undefined;
