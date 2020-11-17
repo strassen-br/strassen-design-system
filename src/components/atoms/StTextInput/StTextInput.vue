@@ -1,7 +1,8 @@
 <template lang="pug">
   .st-text-input-wrapper(:class="wrapperClasses")
-    slot(name="topLabel")
-      label.top-label(:for="$attrs.id") {{ topLabelText }}
+    template(v-if="hasTopLabel")
+      slot(name="topLabel")
+        label.top-label(:for="$attrs.id") {{ topLabelText }}
 
     .relative-input-wrapper
       input.input(
@@ -42,12 +43,12 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   props: {
     topLabelText: {
       type: String,
-      required: true,
+      required: false,
       default: defaultProps.topLabelText,
     },
     bottomLabelText: {
       type: String,
-      required: true,
+      required: false,
       default: defaultProps.bottomLabelText,
     },
     value: {

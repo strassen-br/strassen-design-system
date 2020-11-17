@@ -1,4 +1,5 @@
 const vueWebpackConfig = require('../node_modules/@vue/cli-service/webpack.config.js');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const findPostCssRule = ({ test }) => test.toString() === '/\\.p(ost)?css$/';
 const findPugRule = ({ test }) => test.toString() === '/\\.pug$/';
@@ -33,5 +34,11 @@ module.exports = {
         ...vueWebpackPlugins,
       ],
     },
+    plugins: [
+      ...config.plugins,
+      new MiniCssExtractPlugin({
+        filename: "[name].[contenthash].css",
+      }),
+    ],
   }),
 }
