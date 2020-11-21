@@ -71,7 +71,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     @apply block px-4 py-3 mt-2 box-border text-left text-sm border-1;
 
     .notification-title {
-      @apply font-extrabold text-base;
+      @apply font-bold text-base;
     }
   }
 
