@@ -128,37 +128,51 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
 .st-link-wrapper,
 .light .st-link-wrapper {
+
+  &:hover:not(.disabled) {
+    @apply text-opacity-70;
+  }
+  &:active:not(.disabled) {
+    @apply text-opacity-50;
+  }
+  &.disabled {
+    @apply text-opacity-40;
+  }
+
   &.primary {
     @apply text-black;
     &:focus:not(.disabled) {
       @apply shadow-outline-black;
     }
-    &:hover:not(.disabled) {
-      @apply text-opacity-70;
-    }
-    &:active:not(.disabled) {
-      @apply text-opacity-50;
-    }
-    &.disabled {
-      @apply text-opacity-40;
+  }
+  &.brand {
+    @apply text-brand-purple;
+    &:focus:not(.disabled) {
+      @apply shadow-outline-purple;
     }
   }
 }
 
 .dark .st-link-wrapper {
+  &:hover:not(.disabled) {
+    @apply text-opacity-70;
+  }
+  &:active:not(.disabled) {
+    @apply text-opacity-50;
+  }
+  &.disabled {
+    @apply text-opacity-40;
+  }
   &.primary {
     @apply text-white;
     &:focus:not(.disabled) {
       @apply shadow-outline-white;
     }
-    &:hover:not(.disabled) {
-      @apply text-opacity-70;
-    }
-    &:active:not(.disabled) {
-      @apply text-opacity-50;
-    }
-    &.disabled {
-      @apply text-opacity-40;
+  }
+  &.brand {
+    @apply text-brand-yellow;
+    &:focus:not(.disabled) {
+      @apply shadow-outline-yellow;
     }
   }
 }
