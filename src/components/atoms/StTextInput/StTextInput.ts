@@ -1,4 +1,7 @@
-import { ComponentColor, ComponentSize } from '../../sharedConstants';
+import { ComponentColor, ComponentSize, UnionSubset } from '../../sharedConstants';
+
+export type TextInputColor = UnionSubset<ComponentColor, 'primary' | 'success' | 'danger'>;
+export const textInputColors: readonly TextInputColor[] = ['primary', 'success', 'danger'];
 
 export type EventsTypes = Readonly<{
   click: undefined;
@@ -9,7 +12,7 @@ export type PropsTypes = Readonly<{
   topLabelText?: string;
   bottomLabelText?: string;
   value?: string;
-  color: ComponentColor;
+  color: UnionSubset<ComponentColor, 'primary' | 'success' | 'danger'>;
   size: ComponentSize;
   disabled: boolean;
   uppercase: boolean;

@@ -7,8 +7,13 @@ import {
   getEventArgType,
   filterArgTypesWithControls,
 } from '../../../storybook';
-import { componentColors, componentSizes } from '../../sharedConstants';
-import { PropsTypes, EventsTypes, defaultProps } from './StTextInput';
+import { componentSizes } from '../../sharedConstants';
+import {
+  PropsTypes,
+  EventsTypes,
+  defaultProps,
+  textInputColors,
+} from './StTextInput';
 import StTextInput from './StTextInput.vue';
 
 /**
@@ -110,10 +115,10 @@ export default {
     color: {
       description: 'Input color, used to show validation state',
       table: {
-        type: { summary: joinWithPipe(componentColors) },
+        type: { summary: joinWithPipe(textInputColors) },
         defaultValue: { summary: defaultProps.color },
       },
-      control: { type: 'inline-radio', options: componentColors },
+      control: { type: 'inline-radio', options: textInputColors },
       defaultValue: defaultProps.color,
     },
     size: {
