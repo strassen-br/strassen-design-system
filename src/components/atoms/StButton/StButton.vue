@@ -85,6 +85,9 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   &.success {
     @apply bg-success-light;
   }
+  &.brand {
+    @apply bg-brand-purple;
+  }
 
   &:hover {
     @apply bg-opacity-80 text-opacity-70;
@@ -107,6 +110,9 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     &.success {
       @apply border-success-light text-success-light;
     }
+    &.brand {
+      @apply border-brand-purple text-brand-purple;
+    }
 
     &:hover {
       @apply border-opacity-60 text-opacity-60;
@@ -126,6 +132,9 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     }
     &.success {
       @apply text-success-light;
+    }
+    &.brand {
+      @apply text-brand-purple;
     }
 
     &:hover {
@@ -147,6 +156,9 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
   &.success {
     @apply bg-success-dark;
+  }
+  &.brand {
+    @apply bg-brand-yellow;
   }
 
   &:hover {
@@ -170,6 +182,9 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     &.success {
       @apply border-success-dark text-success-light;
     }
+    &.brand {
+      @apply border-brand-yellow text-brand-yellow;
+    }
 
     &:hover {
       @apply border-opacity-70 text-opacity-70;
@@ -189,6 +204,9 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     }
     &.success {
       @apply text-success-dark;
+    }
+    &.brand {
+      @apply text-brand-yellow;
     }
 
     &:hover {
