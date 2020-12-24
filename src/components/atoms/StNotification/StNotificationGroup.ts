@@ -1,3 +1,8 @@
+import { ComponentColor, UnionSubset } from '../../sharedConstants';
+
+export type NotificationColor = UnionSubset<ComponentColor, 'primary' | 'success' | 'danger'>;
+export const notificationColors: readonly NotificationColor[] = ['primary', 'success', 'danger'];
+
 export const notificationGroupPositions = <const> [
   'top left', 'top center', 'top right',
   'bottom left', 'bottom center', 'bottom right',

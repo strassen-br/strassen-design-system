@@ -1,9 +1,10 @@
-import { ComponentColor } from './components/sharedConstants.d';
+import { NotificationColor } from './components/atoms/StNotification/StNotificationGroup.d';
+
 
 export interface StNotificationOptions {
   title?: string;
   text?: string;
-  type?: ComponentColor;
+  type?: NotificationColor;
   group?: string;
   duration?: number;
   // speed?: number;

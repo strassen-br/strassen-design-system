@@ -1,12 +1,15 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Vue from 'vue';
-import { componentColors } from '../../sharedConstants';
 import {
-  Meta, Story, filterArgTypesWithControls, joinWithPipe,
+  Meta,
+  Story,
+  joinWithPipe,
+  filterArgTypesWithControls,
 } from '../../../storybook';
-import StNotificationGroup from './StNotificationGroup.vue';
 import StLink from '../StLink/StLink.vue';
+import { notificationColors } from './StNotificationGroup';
+import StNotificationGroup from './StNotificationGroup.vue';
 import { StNotificationOptions } from '../../../../types/notifications.d';
 
 /**
@@ -68,10 +71,10 @@ export default {
       table: { type: { summary: 'String ' } },
     },
     type: {
-      control: { type: 'inline-radio', options: componentColors },
+      control: { type: 'inline-radio', options: notificationColors },
       defaultValue: 'primary',
       description: 'Notification color',
-      table: { type: { summary: joinWithPipe(componentColors) } },
+      table: { type: { summary: joinWithPipe(notificationColors) } },
     },
     group: {
       control: { type: 'text' },
