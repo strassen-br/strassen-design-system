@@ -1,7 +1,7 @@
 import { Meta, Story } from '../../../storybook';
 export declare const Base: Story<Readonly<{
     label: string;
-    color: "primary";
+    color: "primary" | "brand";
     size: "xs" | "sm" | "md";
     underlineBehavior: "never" | "on-hover" | "always";
     disabled: boolean;
@@ -11,7 +11,7 @@ export declare const Base: Story<Readonly<{
 }>>;
 declare const _default: Meta<Readonly<{
     label: string;
-    color: "primary";
+    color: "primary" | "brand";
     size: "xs" | "sm" | "md";
     underlineBehavior: "never" | "on-hover" | "always";
     disabled: boolean;

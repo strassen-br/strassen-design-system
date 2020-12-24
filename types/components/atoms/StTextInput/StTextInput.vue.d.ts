@@ -14,7 +14,7 @@ declare const _default: import("vue/types/vue").ExtendedVue<Vue, Data, Methods, 
     topLabelText?: string | undefined;
     bottomLabelText?: string | undefined;
     value?: string | undefined;
-    color: import("../../sharedConstants").ComponentColor;
+    color: "primary" | "success" | "danger";
     size: import("../../sharedConstants").ComponentSize;
     disabled: boolean;
     uppercase: boolean;

@@ -12,7 +12,7 @@ export declare type Events = {
 };
 declare const _default: import("vue/types/vue").ExtendedVue<Vue, Data, Methods, Computed, Readonly<{
     label: string;
-    color: "primary";
+    color: "primary" | "brand";
     size: "xs" | "sm" | "md";
     underlineBehavior: "never" | "on-hover" | "always";
     disabled: boolean;

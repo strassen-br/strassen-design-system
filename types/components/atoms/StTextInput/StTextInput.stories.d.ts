@@ -3,7 +3,7 @@ export declare const Base: Story<Readonly<{
     topLabelText?: string | undefined;
     bottomLabelText?: string | undefined;
     value?: string | undefined;
-    color: import("../../sharedConstants").ComponentColor;
+    color: "primary" | "success" | "danger";
     size: import("../../sharedConstants").ComponentSize;
     disabled: boolean;
     uppercase: boolean;
@@ -15,7 +15,7 @@ declare const _default: Meta<Readonly<{
     topLabelText?: string | undefined;
     bottomLabelText?: string | undefined;
     value?: string | undefined;
-    color: import("../../sharedConstants").ComponentColor;
+    color: "primary" | "success" | "danger";
     size: import("../../sharedConstants").ComponentSize;
     disabled: boolean;
     uppercase: boolean;

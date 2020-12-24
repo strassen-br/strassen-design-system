@@ -1,5 +1,5 @@
 import { ComponentColor, ComponentSize, UnionSubset } from '../../sharedConstants';
-export declare type LinkColor = UnionSubset<ComponentColor, 'primary'>;
+export declare type LinkColor = UnionSubset<ComponentColor, 'primary' | 'brand'>;
 export declare const linkColors: readonly LinkColor[];
 export declare type LinkSize = UnionSubset<ComponentSize, 'xs' | 'sm' | 'md'>;
 export declare const linkSizes: readonly LinkSize[];
