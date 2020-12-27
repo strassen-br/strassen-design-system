@@ -13,17 +13,24 @@ import StLink from './components/atoms/StLink/StLink.vue';
 import StTextInput from './components/atoms/StTextInput/StTextInput.vue';
 import StNotificationGroup from './components/atoms/StNotification/StNotificationGroup.vue';
 // molecules
+import StLoadingIndicator from './components/molecules/StLoadingIndicator/StLoadingIndicator.vue';
 // organisms
 
 // This allows the user to do Vue.use(st) and register all the components
 export function install(Vue: VueConstructor) {
   Vue.use(NotificationSSR);
 
+  // atoms
   Vue.component('StButton', StButton);
   Vue.component('StIcon', StIcon);
   Vue.component('StLink', StLink);
   Vue.component('StTextInput', StTextInput);
   Vue.component('StNotificationGroup', StNotificationGroup);
+
+  // molecules
+  Vue.component('StLoadingIndicator', StLoadingIndicator);
+
+  // organisms
 }
 
 // This allows the user to independently register components
@@ -35,6 +42,7 @@ export {
   StTextInput,
   StNotificationGroup,
   // molecules
+  StLoadingIndicator,
   // organisms
 };
 

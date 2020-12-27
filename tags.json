@@ -68,5 +68,10 @@
       "name",
       "kind"
     ]
+  },
+  "st-loading-indicator": {
+    "description": "Block display small loading indicator",
+    "attributes": [],
+    "defaults": []
   }
 }
