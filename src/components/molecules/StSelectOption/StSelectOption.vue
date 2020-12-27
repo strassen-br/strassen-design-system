@@ -1,9 +1,9 @@
 <template>
-  <div class="st-select-option-wrapper" tabindex="0" @click="emitClickWithValue">
+  <button class="st-select-option-wrapper" @click="emitClickWithValue">
     <slot>
       <span>{{ label }}</span>
     </slot>
-  </div>
+  </button>
 </template>
 
 <script lang="ts">
@@ -41,15 +41,12 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
 <style lang="postcss" scoped>
 .st-select-option-wrapper {
-  @apply flex flex-col border border-t-0 px-4 py-2 cursor-pointer
-  transition-all duration-200 ease-out;
+  @apply flex flex-col px-4 py-2 cursor-pointer
+  w-full transition-all duration-200 ease-out
+  outline-none;
 
-  &:hover {
-    @apply opacity-70;
-  }
-
-  &:active {
-    @apply opacity-40;
+  & + .st-select-option-wrapper {
+    @apply border-t-1;
   }
 
   &:focus-within {
@@ -59,19 +56,36 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
 .st-select-option-wrapper,
 .light .st-select-option-wrapper {
-  @apply border-gray-900;
+  @apply bg-white border-gray-900;
+
+  &:hover {
+    @apply bg-gray-200;
+  }
 
   &:focus-within {
-    @apply shadow-outline-black;
+    @apply bg-gray-300;
   }
+
+  &:active {
+    @apply bg-gray-400;
+  }
+
 }
 
 .st-select-option-wrapper,
 .dark .st-select-option-wrapper {
-  @apply border-gray-100;
+  @apply bg-gray-900 border-gray-100;
+
+  &:hover {
+    @apply bg-gray-800;
+  }
 
   &:focus-within {
-    @apply shadow-outline-white;
+    @apply bg-gray-700;
+  }
+
+  &:active {
+    @apply bg-gray-600;
   }
 }
 </style>
