@@ -1,6 +1,6 @@
 <template>
 <!-- The animation only works if using display block  -->
-  <st-icon name="loader-5" class="st-loading-indicator" />
+  <st-icon name="loader-5" class="st-loading-indicator" aria-hidden="true" />
 </template>
 
 <script lang="ts">
