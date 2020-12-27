@@ -1,24 +1,19 @@
 <template>
+<!-- The animation only works if using display block  -->
   <st-icon name="loader-5" class="st-loading-indicator" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { RecordPropsDefinition } from 'vue/types/options.d';
 import StIcon from '../../atoms/StIcon/StIcon.vue';
-import { PropsTypes, defaultProps } from './StLoadingIndicator';
+import { PropsTypes } from './StLoadingIndicator';
 
 type Data = {}
-type Methods = {
-  emitClick: () => void;
-}
-type Computed = {
-}
+type Methods = {}
+type Computed = {}
 
 export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   components: { StIcon },
-  props: {
-  } as RecordPropsDefinition<PropsTypes>,
   methods: {
     emitClick() {
       this.$emit('click');
@@ -30,7 +25,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 <style lang="postcss" scoped>
 .st-loading-indicator,
 .light .st-loading-indicator {
-  @apply text-black animate-spin text-2xl transition;
+  @apply text-black animate-spin text-2xl transition block;
 }
 
 .dark .st-loading-indicator {
