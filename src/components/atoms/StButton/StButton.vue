@@ -172,7 +172,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 
   &.outline {
-    @apply text-white bg-transparent border-2;
+    @apply text-white bg-transparent;
     &.primary {
       @apply border-white;
     }

@@ -226,7 +226,7 @@ $input-transition: transition-all duration-200 ease-out;
 .st-text-input-wrapper,
 .light .st-text-input-wrapper {
   .input {
-    @apply bg-white border border-gray-400;
+    @apply bg-white border border-gray-500;
 
     &:focus {
       @apply border-black shadow-outline-black;

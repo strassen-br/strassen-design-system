@@ -122,6 +122,15 @@
     "description": "If notifications from this group should not be created when an identical notification exists",
     "type": "boolean"
   },
+  "st-select-option/label": {
+    "description": "Option label"
+  },
+  "st-select-option/value": {
+    "description": "Option value. Used as the payload in the click event"
+  },
+  "st-select-option/click": {
+    "description": "Emitted when the option is clicked"
+  },
   "st-icon/kind": {
     "description": "Icon style from the Remix Icon Lib, default: fill",
     "options": [

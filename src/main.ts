@@ -14,6 +14,7 @@ import StTextInput from './components/atoms/StTextInput/StTextInput.vue';
 import StNotificationGroup from './components/atoms/StNotification/StNotificationGroup.vue';
 // molecules
 import StLoadingIndicator from './components/molecules/StLoadingIndicator/StLoadingIndicator.vue';
+import StSelectOption from './components/molecules/StSelectOption/StSelectOption.vue';
 // organisms
 
 // This allows the user to do Vue.use(st) and register all the components
@@ -29,6 +30,7 @@ export function install(Vue: VueConstructor) {
 
   // molecules
   Vue.component('StLoadingIndicator', StLoadingIndicator);
+  Vue.component('StSelectOption', StSelectOption);
 
   // organisms
 }
@@ -43,6 +45,7 @@ export {
   StNotificationGroup,
   // molecules
   StLoadingIndicator,
+  StSelectOption,
   // organisms
 };
 
