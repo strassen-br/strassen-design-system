@@ -74,6 +74,19 @@
     "attributes": [],
     "defaults": []
   },
+  "st-select": {
+    "description": "Select input",
+    "attributes": [
+      "label",
+      "placeholder",
+      "value"
+    ],
+    "defaults": [
+      "label",
+      "placeholder",
+      "value"
+    ]
+  },
   "st-select-option": {
     "description": "Select option container",
     "attributes": [

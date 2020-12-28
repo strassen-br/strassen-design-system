@@ -4,6 +4,7 @@ import {
   Story,
   getEventArgType,
   filterArgTypesWithControls,
+  getSlotArgType,
 } from '../../../storybook';
 import {
   PropsTypes,
@@ -21,13 +22,14 @@ const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
   components: { StSelect, StSelectOption },
   methods: actions('click', 'input'),
   template: `
-  <st-select v-bind="$props" @click="click" @input="input">
-    <template #default="slotProps">
+  <st-select v-bind="$props" @input="input">
+    <template #default="{ onOptionClick }">
       <st-select-option
         v-for="i in [1,2,3,4,5]"
         :key="i"
-        :value="i"
+        :value="'option-' + i + '-value'"
         :label="'Option ' + i"
+        @click="onOptionClick"
       />
     </template>
   </st-select>
@@ -43,19 +45,10 @@ export default {
     value: {
       description: 'Input value',
       table: {
-        type: { summary: 'String' },
+        type: { summary: 'Any' },
         defaultValue: { summary: defaultProps.value },
       },
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    id: {
-      description: 'Input id, needed for accessibility purposes',
-      table: {
-        type: { summary: 'String' },
-      },
-      control: { type: 'text' },
-      defaultValue: 'my-input',
+      control: { type: 'object' },
     },
     placeholder: {
       description: 'Input placeholder',
@@ -65,24 +58,36 @@ export default {
       control: { type: 'text' },
       defaultValue: 'My placeholder',
     },
-    topLabelText: {
+    label: {
       description: 'Text shown above the select',
       table: {
         type: { summary: 'String' },
-        defaultValue: { summary: defaultProps.topLabelText },
+        defaultValue: { summary: defaultProps.label },
       },
       control: { type: 'text' },
-      defaultValue: 'Top label text',
+      defaultValue: 'My select',
     },
-    click: getEventArgType('Emitted when the button is clicked'),
-    input: getEventArgType('Emitted when the user types in the field', 'String'),
+    input: getEventArgType('Emitted when the select value changes', 'String'),
+    default: getSlotArgType('Slot to place the StSelectOption components', true),
   },
   parameters: {
     layout: 'centered',
     docs: {
-      source: { code: '<st-select top-label-text="Enter your email" v-model="userEmail" />' },
+      source: {
+        code:
+      `<st-select label="My select" v-model="selectedOption">
+  // the abbreviated syntax for this is <template v-slot:default="{ onOptionClick }">
+  // the long form is used here because storybook doesn't seem to parse the shorthand
+  <template v-slot:default="{ onOptionClick }">
+    <st-select-option value="value-1" label="Option 1" v-on:click="onOptionClick" />
+    <st-select-option value="value-2" label="Option 2" v-on:click="onOptionClick" />
+    <st-select-option value="value-3" label="Option 3" v-on:click="onOptionClick" />
+    <st-select-option value="value-4" label="Option 4" v-on:click="onOptionClick" />
+  </template>
+</st-select>`,
+      },
       description: {
-        component: 'Basic select component, based on the text input component.',
+        component: 'Basic select component.',
       },
     },
   },

@@ -1,22 +1,25 @@
 <template>
   <div class="st-select-wrapper">
-    <st-text-input class="text-input" v-bind="textInputProps" v-model="computedTextValue">
-      <template #right>
-        <st-button
-          kind="outline"
-          class="arrow-dropdown"
-          v-click-outside="onClickOutside"
-          @click="onArrowDropdownClick"
-        >
-          <st-icon :class="arrowDropdownIconClasses" name="arrow-down-s" kind="line" />
-        </st-button>
-      </template>
-    </st-text-input>
+    <span>{{ label }}</span>
+
+    <st-button
+      kind="outline"
+      class="dropdown"
+      v-click-outside="hideOptions"
+      @click="onArrowDropdownClick"
+    >
+      <span v-if="hasSelectedOption" class="selected-option-label">{{ selectedOptionLabel }}</span>
+      <span v-else class="placeholder">{{ $attrs.placeholder }}</span>
+
+      <div class="icon-wrapper">
+        <st-icon :class="arrowDropdownIconClasses" name="arrow-down-s" kind="line" />
+      </div>
+    </st-button>
 
     <transition name="expand">
         <div class="options-wrapper" v-if="isOptionsContainerVisible">
           <perfect-scrollbar>
-            <slot />
+            <slot v-bind="optionsSlotProps" />
           </perfect-scrollbar>
         </div>
     </transition>
@@ -31,24 +34,20 @@ import { RecordPropsDefinition } from 'vue/types/options.d';
 
 import StIcon from '../../atoms/StIcon/StIcon.vue';
 import StButton from '../../atoms/StButton/StButton.vue';
-import StTextInput from '../../atoms/StTextInput/StTextInput.vue';
 
 import { PropsTypes, defaultProps } from './StSelect';
-import { PropsTypes as TextInputProps } from '../../atoms/StTextInput/StTextInput';
 
 type Data = {
   isOptionsContainerVisible: boolean;
 }
 type Methods = {
-  onClickOutside: () => void;
+  hideOptions: () => void;
   onArrowDropdownClick: () => void;
-  emitClickIfNotDisabled: () => void;
 }
 type Computed = {
-  textInputProps: TextInputProps;
-  computedTextValue: string;
-  wrapperClasses: string;
-  inputListeners: Record<string, Function>;
+  hasSelectedOption: boolean;
+  selectedOptionLabel: string;
+  optionsSlotProps: Record<string, Function>;
   arrowDropdownIconClasses: Record<string, boolean>;
 }
 
@@ -57,25 +56,19 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   components: {
     StIcon,
     StButton,
-    StTextInput,
     PerfectScrollbar,
   },
   directives: { ClickOutside },
   props: {
-    topLabelText: {
+    label: {
       type: String,
       required: false,
-      default: defaultProps.topLabelText,
+      default: defaultProps.label,
     },
     value: {
-      type: String,
-      required: false,
+      type: undefined,
+      required: true,
       default: defaultProps.value,
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
-      default: defaultProps.disabled,
     },
   } as RecordPropsDefinition<PropsTypes>,
   data() {
@@ -88,33 +81,11 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
     (this as any).popupItem = this.$el;
   },
   computed: {
-    textInputProps() {
-      return {
-        ...this.$attrs,
-        color: 'primary',
-        size: 'md',
-        disabled: false,
-        uppercase: false,
-        topLabelText: this.topLabelText,
-      };
+    hasSelectedOption() {
+      return !!this.value;
     },
-    computedTextValue: {
-      get() {
-        return this.value ?? '';
-      },
-      set(value) {
-        this.$emit('input', value);
-      },
-    },
-    wrapperClasses() {
-      const disabledClass = this.disabled ? 'disabled' : '';
-      return `${disabledClass}`;
-    },
-    inputListeners() {
-      return {
-        ...this.$listeners,
-        click: this.emitClickIfNotDisabled,
-      };
+    selectedOptionLabel() {
+      return this.value?.label ?? '';
     },
     arrowDropdownIconClasses() {
       return {
@@ -122,21 +93,27 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
         flip: this.isOptionsContainerVisible,
       };
     },
+    optionsSlotProps() {
+      return {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onOptionClick: (value: any) => {
+          this.hideOptions();
+          this.$emit('input', value);
+        },
+      };
+    },
   },
   methods: {
-    onClickOutside() {
+    hideOptions() {
       this.isOptionsContainerVisible = false;
     },
     onArrowDropdownClick() {
       this.isOptionsContainerVisible = !this.isOptionsContainerVisible;
     },
-    emitClickIfNotDisabled() {
-      if (this.disabled) return;
-      this.$emit('click');
-    },
   },
 });
 </script>
+
 <style lang="postcss" scoped>
 .expand-enter-active, .expand-leave-active {
   @apply transition-all duration-200;
@@ -148,34 +125,24 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 .st-select-wrapper {
   @apply flex flex-col relative;
 
-  &:hover,
-  &:focus-within {
-    .arrow-dropdown {
-      @apply opacity-100;
-    }
-  }
-
-  .text-input {
-    @apply pb-0;
-
-    & >>> .relative-input-wrapper {
-      @apply mb-0;
-
-      .input {
-        @apply pr-12;
-      }
-    }
-  }
-
-  .arrow-dropdown {
-    @apply h-full w-4 px-5 pt-1 pb-0 flex justify-center items-center
+  .dropdown {
+    @apply h-10 p-0 flex justify-between items-center
     border-1 transition duration-200 ease-out;
 
-    .icon {
-      @apply text-lg text-center transition duration-200 ease-out;
+    .placeholder,
+    .selected-option-label {
+      @apply font-normal normal-case px-4 truncate;
+    }
 
-      &.flip {
-        @apply transform rotate-180 mb-1;
+    .icon-wrapper {
+      @apply h-full flex items-center border-l-1 px-2;
+
+      .icon {
+        @apply text-lg text-center transition duration-200 ease-out;
+
+        &.flip {
+          @apply transform rotate-180 mb-1;
+        }
       }
     }
   }
@@ -187,14 +154,23 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 }
 
-/* this is outside to decrease specificity and make it easier to override this style */
-.options-wrapper {
-  @apply h-auto;
-  max-height: 16rem;
-}
-
 .st-select-wrapper,
 .light .st-select-wrapper {
+  .placeholder {
+    @apply text-gray-500;
+  }
+  .icon-wrapper {
+    @apply border-gray-900;
+  }
+  &:hover .icon-wrapper,
+  &:hover .icon-wrapper .icon {
+    @apply border-opacity-60 text-opacity-60;
+  }
+  &:active .icon-wrapper,
+  &:active .icon-wrapper .icon {
+    @apply border-opacity-40 text-opacity-40;
+  }
+
   .options-wrapper {
     @apply bg-white border-gray-900;
   }
@@ -202,9 +178,30 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
 .st-select-wrapper,
 .dark .st-select-wrapper {
+  .placeholder {
+    @apply text-gray-600;
+  }
+  .icon-wrapper {
+    @apply border-gray-100;
+  }
+  &:hover .icon-wrapper,
+  &:hover .icon-wrapper .icon {
+    @apply border-opacity-70 text-opacity-70;
+  }
+  &:active .icon-wrapper,
+  &:active .icon-wrapper .icon {
+    @apply border-opacity-50 text-opacity-50;
+  }
+
   .options-wrapper {
     @apply bg-gray-900 border-gray-100;
   }
+}
+
+/* this is outside to decrease specificity and make it easier to override this style */
+.options-wrapper {
+  @apply h-auto;
+  max-height: 16rem;
 }
 </style>
 <style src="vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css" />

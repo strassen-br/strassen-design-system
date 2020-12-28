@@ -141,11 +141,13 @@ export function filterArgTypesWithControls(argTypes: Record<string, any>): strin
   );
 }
 
-export function getSlotArgType(description: string): EnhancedArgType<string> {
+export function getSlotArgType(description: string, disableControl = false): EnhancedArgType<string> {
   return {
     description,
     table: { type: false },
-    control: { type: 'text' },
+    control: disableControl
+      ? undefined
+      : { type: 'text' },
   };
 }
 export function getEventArgType(description: string, eventType?: string): EnhancedArgType<any> {

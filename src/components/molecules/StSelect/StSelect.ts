@@ -4,13 +4,11 @@ export type EventsTypes = Readonly<{
 }>;
 
 export type PropsTypes = Readonly<{
-  topLabelText?: string;
+  label?: string;
   value?: any;
-  disabled: boolean;
 }>;
 
 export const defaultProps: PropsTypes = {
-  topLabelText: undefined,
+  label: undefined,
   value: undefined,
-  disabled: false,
 };

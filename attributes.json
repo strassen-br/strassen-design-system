@@ -122,6 +122,15 @@
     "description": "If notifications from this group should not be created when an identical notification exists",
     "type": "boolean"
   },
+  "st-select/label": {
+    "description": "Select input label"
+  },
+  "st-select/placeholder": {
+    "description": "Select input placeholder"
+  },
+  "st-select/value": {
+    "description": "Select input value. Must be an object containing a 'value' and a 'label' key"
+  },
   "st-select-option/label": {
     "description": "Option label"
   },
