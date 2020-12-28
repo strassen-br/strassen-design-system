@@ -5,3 +5,4 @@ declare module '*.vue' {
 }
 
 declare module 'vue-click-outside';
+declare module 'vue-notification/dist/ssr';

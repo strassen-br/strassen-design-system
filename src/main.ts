@@ -1,7 +1,5 @@
 import { VueConstructor } from 'vue';
 import 'remixicon/fonts/remixicon.css';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import NotificationSSR from 'vue-notification/dist/ssr';
 
 import './assets/index.css';
