@@ -1,15 +1,5 @@
-import { actions } from '@storybook/addon-actions';
-import {
-  Meta,
-  Story,
-  joinWithPipe,
-  getEventArgType,
-  filterArgTypesWithControls,
-} from '../../../storybook';
-import {
-  PropsTypes,
-  EventsTypes,
-} from './StLoadingIndicator';
+import { Meta, Story, filterArgTypesWithControls } from '../../../storybook';
+import { PropsTypes, EventsTypes } from './StLoadingIndicator';
 import StLoadingIndicator from './StLoadingIndicator.vue';
 
 /**
@@ -18,7 +8,7 @@ import StLoadingIndicator from './StLoadingIndicator.vue';
 const Template: Story<PropsTypes & EventsTypes> = ((args, { argTypes }) => ({
   props: filterArgTypesWithControls(argTypes),
   components: { StLoadingIndicator },
-  template: '<st-loadingIndicator />',
+  template: '<div class="flex items-center"><st-loading-indicator /></div>',
 }));
 
 export const Base = Template.bind({});

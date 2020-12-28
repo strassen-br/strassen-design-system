@@ -14,18 +14,13 @@ type Computed = {}
 
 export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   components: { StIcon },
-  methods: {
-    emitClick() {
-      this.$emit('click');
-    },
-  },
 });
 </script>
 
 <style lang="postcss" scoped>
 .st-loading-indicator,
 .light .st-loading-indicator {
-  @apply text-black animate-spin text-2xl transition block;
+  @apply text-black animate-spin text-2xl block;
 }
 
 .dark .st-loading-indicator {
