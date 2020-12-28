@@ -1,6 +1,6 @@
 <template>
   <div class="st-select-wrapper">
-    <span>{{ label }}</span>
+    <span v-if="label">{{ label }}</span>
 
     <st-button
       kind="outline"
@@ -52,12 +52,7 @@ type Computed = {
 }
 
 export default Vue.extend<Data, Methods, Computed, PropsTypes>({
-  inheritAttrs: false,
-  components: {
-    StIcon,
-    StButton,
-    PerfectScrollbar,
-  },
+  components: { StIcon, StButton, PerfectScrollbar },
   directives: { ClickOutside },
   props: {
     label: {
