@@ -7,8 +7,10 @@ import StLink from './components/atoms/StLink/StLink.vue';
 import StTextInput from './components/atoms/StTextInput/StTextInput.vue';
 import StNotificationGroup from './components/atoms/StNotification/StNotificationGroup.vue';
 import StLoadingIndicator from './components/molecules/StLoadingIndicator/StLoadingIndicator.vue';
+import StSelectOption from './components/molecules/StSelectOption/StSelectOption.vue';
+import StSelect from './components/molecules/StSelect/StSelect.vue';
 export declare function install(Vue: VueConstructor): void;
-export { StButton, StIcon, StLink, StTextInput, StNotificationGroup, StLoadingIndicator, };
+export { StButton, StIcon, StLink, StTextInput, StNotificationGroup, StLoadingIndicator, StSelectOption, StSelect, };
 declare const plugin: {
     install: typeof install;
 };
