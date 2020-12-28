@@ -136,7 +136,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
         @apply text-lg text-center transition duration-200 ease-out;
 
         &.flip {
-          @apply transform rotate-180 mb-1;
+          @apply transform rotate-180;
         }
       }
     }
