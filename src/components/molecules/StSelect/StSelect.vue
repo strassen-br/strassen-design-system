@@ -149,7 +149,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
 
   .options-wrapper {
     @apply absolute left-0 w-full overflow-y-hidden
-    flex flex-col justify-start border border-t-0;
+    flex flex-col justify-start border border-t-0 z-10;
     top: 100%;
   }
 }
