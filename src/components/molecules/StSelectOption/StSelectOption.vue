@@ -50,7 +50,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 
   &:focus-within {
-    @apply outline-none;
+    @apply outline-none shadow-none;
   }
 }
 
