@@ -28,6 +28,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { isEqual } from 'lodash';
 import ClickOutside from 'vue-click-outside';
 import { PerfectScrollbar } from 'vue2-perfect-scrollbar';
 import { RecordPropsDefinition } from 'vue/types/options.d';
@@ -92,6 +93,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
       return {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onOptionClick: (value: any) => {
+          if (isEqual(value, this.value)) return;
           this.hideOptions();
           this.$emit('input', value);
         },

@@ -33,7 +33,8 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   } as RecordPropsDefinition<PropsTypes>,
   methods: {
     emitClickWithValue() {
-      this.$emit('click', this.value);
+      const { label, value } = this;
+      this.$emit('click', { label, value });
     },
   },
 });
