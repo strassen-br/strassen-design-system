@@ -1,6 +1,6 @@
 <template>
   <div class="st-select-wrapper">
-    <span v-if="label">{{ label }}</span>
+    <span v-if="label" class="label">{{ label }}</span>
 
     <st-button
       kind="outline"
