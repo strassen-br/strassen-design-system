@@ -122,6 +122,17 @@
     "description": "If notifications from this group should not be created when an identical notification exists",
     "type": "boolean"
   },
+  "st-chip/label": {
+    "description": "Text shown inside the chip"
+  },
+  "st-chip/is-dismissible": {
+    "description": "If the chip should have a dismiss button",
+    "type": "boolean"
+  },
+  "st-chip/dismiss": {
+    "description": "Emitted when the user clicks the dismiss button",
+    "type": "function"
+  },
   "st-select/label": {
     "description": "Select input label"
   },

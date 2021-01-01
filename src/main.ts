@@ -11,6 +11,7 @@ import StLink from './components/atoms/StLink/StLink.vue';
 import StTextInput from './components/atoms/StTextInput/StTextInput.vue';
 import StNotificationGroup from './components/atoms/StNotification/StNotificationGroup.vue';
 // molecules
+import StChip from './components/molecules/StChip/StChip.vue';
 import StLoadingIndicator from './components/molecules/StLoadingIndicator/StLoadingIndicator.vue';
 import StSelectOption from './components/molecules/StSelectOption/StSelectOption.vue';
 import StSelect from './components/molecules/StSelect/StSelect.vue';
@@ -28,6 +29,7 @@ export function install(Vue: VueConstructor) {
   Vue.component('StNotificationGroup', StNotificationGroup);
 
   // molecules
+  Vue.component('StChip', StChip);
   Vue.component('StLoadingIndicator', StLoadingIndicator);
   Vue.component('StSelectOption', StSelectOption);
   Vue.component('StSelect', StSelect);
@@ -44,6 +46,7 @@ export {
   StTextInput,
   StNotificationGroup,
   // molecules
+  StChip,
   StLoadingIndicator,
   StSelectOption,
   StSelect,

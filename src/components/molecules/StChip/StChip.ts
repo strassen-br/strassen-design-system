@@ -1,15 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export type EventsTypes = Readonly<{
-  click: undefined;
-  input: string;
+  dismiss: undefined;
 }>;
 
 export type PropsTypes = Readonly<{
   label?: string;
-  value?: any;
+  isDismissible?: boolean;
 }>;
 
 export const defaultProps: PropsTypes = {
   label: undefined,
-  value: undefined,
+  isDismissible: true,
 };

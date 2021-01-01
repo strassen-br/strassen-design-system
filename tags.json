@@ -74,6 +74,17 @@
     "attributes": [],
     "defaults": []
   },
+  "st-chip": {
+    "description": "Dismissible text chip",
+    "attributes": [
+      "label",
+      "is-dismissible",
+      "dismiss"
+    ],
+    "defaults": [
+      "label"
+    ]
+  },
   "st-select": {
     "description": "Select input",
     "attributes": [

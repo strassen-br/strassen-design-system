@@ -173,7 +173,6 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 }
 
-.st-select-wrapper,
 .dark .st-select-wrapper {
   .placeholder {
     @apply text-gray-600;
