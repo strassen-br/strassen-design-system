@@ -224,7 +224,7 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   &.disabled:hover,
   &.disabled:focus,
   &.disabled:active {
-    @apply bg-opacity-60 text-opacity-60 shadow-none;
+    @apply bg-opacity-60 text-opacity-60 border-opacity-60 shadow-none !important;
   }
 }
 </style>
