@@ -58,7 +58,8 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
   }
 
   .st-button-wrapper.dismiss-btn {
-    @apply w-7 h-7 p-0 flex justify-center items-center border-0 border-l-1;
+    @apply w-7 h-7 p-0 flex justify-center items-center
+    border-0 border-l-1 transition-colors duration-200 ease-out;
   }
 }
 
