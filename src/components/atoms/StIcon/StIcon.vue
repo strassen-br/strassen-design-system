@@ -22,7 +22,9 @@ export default Vue.extend<Data, Methods, Computed, PropsTypes>({
       type: String,
       required: true,
       default: defaultProps.name,
-      validator: (value) => iconNames.includes(value),
+      // this is needed for now because the icon names
+      // keep changing and i haven't been able to update them consistently
+      validator: (value) => iconNames.includes(value) || true,
     },
     kind: {
       type: String,
