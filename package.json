@@ -77,7 +77,6 @@
     "fork-ts-checker-webpack-plugin": "^5.2.1",
     "lint-staged": "^9.5.0",
     "postcss": "^8.1.6",
-    "postcss-font-magician": "^2",
     "postcss-import": "^12",
     "postcss-nested": "^4",
     "postcss-simple-vars": "^5",

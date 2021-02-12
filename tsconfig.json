@@ -27,7 +27,6 @@
     ]
   },
   "include": [
-    "./types/**/*",
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./src/**/*.vue",
@@ -36,7 +35,6 @@
   ],
   "exclude": [
     "node_modules",
-    "./types/**/*",
     "./dist/**/*"
   ]
 }
