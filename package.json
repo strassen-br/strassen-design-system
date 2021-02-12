@@ -2,7 +2,7 @@
   "author": "Thales Agapito",
   "name": "@strassen/design-system",
   "description": "Strassen Design System",
-  "version": "0.1.82",
+  "version": "0.1.83",
   "license": "GPL-3.0-or-later",
   "main": "./dist/design-system.common.js",
   "directories": {
