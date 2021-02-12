@@ -2,9 +2,8 @@
   "author": "Thales Agapito",
   "name": "@strassen/design-system",
   "description": "Strassen Design System",
-  "version": "0.1.76",
-  "license": "GPLv3",
-  "private": true,
+  "version": "0.1.80",
+  "license": "GPL-3.0-or-later",
   "main": "./dist/design-system.common.js",
   "directories": {
     "test": "tests"
@@ -12,24 +11,27 @@
   "files": [
     "dist",
     "src",
-    "static",
     "types",
+    "tags.json",
     "attributes.json",
-    "tags.json"
+    "package.json",
+    "yarn.lock",
+    "README.md"
   ],
   "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thalesagapito/strassen-design-system.git"
+    "url": "git+https://github.com/strassen-br/design-system.git"
   },
-  "homepage": "https://github.com/thalesagapito/strassen-design-system#readme",
+  "homepage": "https://github.com/strassen-br/design-system#readme",
   "bugs": {
-    "url": "https://github.com/thalesagapito/strassen-design-system/issues"
+    "url": "https://github.com/strassen-br/design-system/issues"
   },
   "scripts": {
+    "prepare": "install-peers",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib src/main.ts",
-    "build-pack-lib": "vue-cli-service build --target lib src/main.ts && npm pack",
+    "build-pack-lib": "yarn build && npm pack",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -s ./static -p 6006 --no-dll",
@@ -40,7 +42,6 @@
     "color-convert": "^2.0.1",
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
-    "remixicon": "^2.5.0",
     "tailwindcss": "^1.9.6",
     "vue": "^2.6.12",
     "vue-click-outside": "^1.1.0",
@@ -75,6 +76,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
     "fork-ts-checker-webpack-plugin": "^5.2.1",
+    "install-peers-cli": "^2.2.0",
     "lint-staged": "^9.5.0",
     "postcss": "^8.1.6",
     "postcss-import": "^12",
@@ -88,6 +90,9 @@
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.12"
   },
+  "peerDependencies": {
+    "remixicon": "^2.5.0"
+  },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -100,5 +105,10 @@
   "vetur": {
     "tags": "tags.json",
     "attributes": "attributes.json"
-  }
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "design-system"
+  ]
 }

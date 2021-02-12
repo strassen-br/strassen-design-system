@@ -1,5 +1,4 @@
 import { VueConstructor } from 'vue';
-import 'remixicon/fonts/remixicon.css';
 import NotificationSSR from 'vue-notification/dist/ssr';
 
 import './assets/index.css';
