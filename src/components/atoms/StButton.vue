@@ -43,9 +43,7 @@ export default defineComponent({
       props.kind,
       props.size,
     ])
-    return {
-      wrapperClasses,
-    }
+    return { wrapperClasses }
   },
 })
 </script>

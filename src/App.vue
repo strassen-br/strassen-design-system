@@ -4,6 +4,7 @@
       <div v-for="mode in ['light', 'dark']" :key="mode" :class="mode">
         <st-button-demo />
         <st-link-demo />
+        <st-icon-demo />
       </div>
     </div>
   </div>
@@ -12,6 +13,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import StButtonDemo from './local/StButtonDemo.vue'
+import StIconDemo from './local/StIconDemo.vue'
 import StLinkDemo from './local/StLinkDemo.vue'
 
 export default defineComponent({
@@ -20,6 +22,7 @@ export default defineComponent({
 
     StButtonDemo,
     StLinkDemo,
+    StIconDemo,
 
   },
 })
@@ -27,10 +30,10 @@ export default defineComponent({
 
 <style lang="postcss">
 .content {
-  @apply flex;
+  @apply flex w-screen overflow-hidden;
 
   .row {
-    @apply flex items-center space-x-6;
+    @apply flex flex-wrap items-center space-x-6;
   }
 }
 

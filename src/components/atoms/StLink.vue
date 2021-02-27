@@ -27,13 +27,8 @@ export default defineComponent({
   },
 
   setup(props) {
-    const wrapperClasses = computed(() => [
-      'st-link-wrapper',
-      props.size,
-    ])
-    return {
-      wrapperClasses,
-    }
+    const wrapperClasses = computed(() => ['st-link-wrapper', props.size])
+    return { wrapperClasses }
   },
 })
 </script>
