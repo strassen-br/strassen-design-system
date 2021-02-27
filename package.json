@@ -4,7 +4,9 @@
   "license": "GPL-3.0-or-later",
   "name": "@strassen/design-system",
   "files": [
-    "dist"
+    "dist/design-system.es.js",
+    "dist/design-system.umd.js",
+    "dist/style.css"
   ],
   "main": "./dist/design-system.umd.js",
   "module": "./dist/design-system.es.js",
@@ -12,7 +14,8 @@
     ".": {
       "import": "./dist/design-system.es.js",
       "require": "./dist/design-system.umd.js"
-    }
+    },
+    "./css": "./dist/style.css"
   },
   "description": "Strassen Design System",
   "directories": {
