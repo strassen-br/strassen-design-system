@@ -20,9 +20,12 @@ module.exports = {
       'brand-yellow': '#fac505',
       'brand-purple': '#7214c4',
 
+      // danger: colors.red[500],
+      // success: colors.green[500],
+
       black: colors.black,
       white: colors.white,
-      gray: colors.coolGray,
+      gray: colors.trueGray,
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
@@ -168,7 +171,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Inter',
+        'Inter var',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
