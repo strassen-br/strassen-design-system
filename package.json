@@ -6,7 +6,8 @@
   "files": [
     "dist/design-system.es.js",
     "dist/design-system.umd.js",
-    "dist/style.css"
+    "dist/style.css",
+    "index.d.ts"
   ],
   "main": "./dist/design-system.umd.js",
   "module": "./dist/design-system.es.js",
@@ -21,7 +22,7 @@
   "directories": {
     "test": "tests"
   },
-  "types": "./types/index.d.ts",
+  "types": "./index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/strassen-br/strassen-design-system.git"
