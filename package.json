@@ -33,7 +33,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "build-pack-lib": "yarn build && npm pack",
-    "lint": "eslint --ext .ts,vue --fix --ignore-path .gitignore ."
+    "lint": "eslint --ext .ts,.vue --fix --ignore-path .gitignore ."
   },
   "peerDependencies": {
     "remixicon": "^2.5.0"
