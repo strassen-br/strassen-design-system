@@ -14,8 +14,7 @@
     "tags.json",
     "attributes.json",
     "package.json",
-    "yarn.lock",
-    "README.md"
+    "yarn.lock"
   ],
   "types": "./types/index.d.ts",
   "repository": {
@@ -39,7 +38,6 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",
     "color-convert": "^2.0.1",
-    "core-js": "^3.6.5",
     "lodash": "^4.17.20",
     "tailwindcss": "^1.9.6",
     "vue-click-outside": "^1.1.0",
@@ -70,6 +68,7 @@
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^1.0.3",
     "babel-loader": "^8.1.0",
+    "core-js": "^3.9.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",

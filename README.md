@@ -1,4 +1,7 @@
-# strassen-design-system
+# Strassen Design System
+
+## To Do
+  - Remove lodash
 
 ## Project setup
 ```
