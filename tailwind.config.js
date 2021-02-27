@@ -20,9 +20,6 @@ module.exports = {
       'brand-yellow': '#fac505',
       'brand-purple': '#7214c4',
 
-      // danger: colors.red[500],
-      // success: colors.green[500],
-
       black: colors.black,
       white: colors.white,
       gray: colors.trueGray,

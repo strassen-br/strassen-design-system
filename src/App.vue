@@ -2,42 +2,8 @@
   <div>
     <div class="content">
       <div v-for="mode in ['light', 'dark']" :key="mode" :class="mode">
-        <div class="row">
-          <st-button
-            v-for="size in ['xs', 'sm', 'md', 'lg', 'xl']"
-            :key="size"
-            :size="size"
-            label="Label"
-          />
-        </div>
-        <div class="row">
-          <st-button
-            v-for="size in ['xs', 'sm', 'md', 'lg', 'xl']"
-            :key="size"
-            :size="size"
-            label="Label"
-            kind="outline"
-          />
-        </div>
-        <div class="row">
-          <st-button
-            v-for="size in ['xs', 'sm', 'md', 'lg', 'xl']"
-            :key="size"
-            :size="size"
-            label="Label"
-            disabled
-          />
-        </div>
-        <div class="row">
-          <st-button
-            v-for="size in ['xs', 'sm', 'md', 'lg', 'xl']"
-            :key="size"
-            :size="size"
-            label="Label"
-            kind="outline"
-            disabled
-          />
-        </div>
+        <st-button-demo />
+        <st-link-demo />
       </div>
     </div>
   </div>
@@ -45,19 +11,21 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import StButton from './components/atoms/StButton.vue'
+import StButtonDemo from './local/StButtonDemo.vue'
+import StLinkDemo from './local/StLinkDemo.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
 
-    StButton,
+    StButtonDemo,
+    StLinkDemo,
 
   },
 })
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 .content {
   @apply flex;
 

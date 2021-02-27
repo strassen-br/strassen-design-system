@@ -52,23 +52,23 @@ export default defineComponent({
 
 <style lang="postcss">
 .st-button-wrapper {
-  @apply inline-flex items-center border border-transparent cursor-pointer
+  @apply inline-flex items-center border border-transparent cursor-pointer shadow
   uppercase font-medium transition-all duration-200 focus:outline-none focus:ring;
 
   /* -------------------------------------------------------------------------- */
   /*                                   COLORS                                   */
   /* -------------------------------------------------------------------------- */
   &.primary {
-    @apply focus:ring-gray-400 dark:focus:ring-gray-600 shadow;
+    @apply focus:ring-gray-400 dark:focus:ring-gray-600;
 
     /* ---------------------------------- KINDS --------------------------------- */
     &.filled {
       @apply bg-black text-white hover:bg-gray-700
-      dark:bg-white dark:text-black dark:hover:bg-gray-200;
+      dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200;
     }
     &.outline {
-      @apply bg-transparent text-black border-black hover:bg-gray-200
-      dark:bg-transparent dark:text-white dark:border-white dark:hover:bg-gray-700;
+      @apply bg-white text-gray-900 border-black hover:bg-gray-200
+      dark:bg-gray-900 dark:text-white dark:border-white dark:hover:bg-gray-700;
     }
   }
 
