@@ -51,6 +51,6 @@ export default defineComponent({
 
 <style lang="postcss">
 .st-icon {
-  @apply transition-all duration-200 text-gray-900 dark:text-white;
+  @apply transition-all duration-300 text-gray-900 dark:text-white;
 }
 </style>

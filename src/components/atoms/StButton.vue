@@ -51,7 +51,8 @@ export default defineComponent({
 <style lang="postcss">
 .st-button-wrapper {
   @apply inline-flex items-center border border-transparent cursor-pointer shadow
-  uppercase font-medium transition-all duration-200 outline-none focus:ring;
+  uppercase font-medium transition-all duration-300 focus:ring;
+  @apply outline-none focus:outline-none !important;
 
   /* -------------------------------------------------------------------------- */
   /*                                   COLORS                                   */

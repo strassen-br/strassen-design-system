@@ -35,9 +35,10 @@ export default defineComponent({
 
 <style lang="postcss">
 .st-link-wrapper {
-  @apply inline-flex items-center cursor-pointer font-medium px-1 transition-all duration-200
+  @apply inline-flex items-center cursor-pointer font-medium px-1 transition-all duration-300
   text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-300
-  hover:underline outline-none focus:ring focus:ring-gray-400 dark:focus:ring-gray-600;
+  hover:underline focus:ring focus:ring-gray-400 dark:focus:ring-gray-600;
+  @apply outline-none focus:outline-none !important;
 
   /* -------------------------------------------------------------------------- */
   /*                                    SIZES                                   */
