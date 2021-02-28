@@ -1,5 +1,5 @@
 {
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Thales Agapito",
   "license": "GPL-3.0-or-later",
   "name": "@strassen/design-system",
@@ -16,7 +16,7 @@
       "import": "./dist/design-system.es.js",
       "require": "./dist/design-system.umd.js"
     },
-    "./css": "./dist/style.css"
+    "./dist/style.css": "./dist/style.css"
   },
   "description": "Strassen Design System",
   "directories": {
