@@ -37,7 +37,7 @@ export default defineComponent({
 .st-link-wrapper {
   @apply inline-flex items-center cursor-pointer font-medium px-1 transition-all duration-200
   text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-300
-  hover:underline focus:outline-none focus:ring focus:ring-gray-400 dark:focus:ring-gray-600;
+  hover:underline outline-none focus:ring focus:ring-gray-400 dark:focus:ring-gray-600;
 
   /* -------------------------------------------------------------------------- */
   /*                                    SIZES                                   */
