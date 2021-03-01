@@ -1,7 +1,7 @@
 <template>
-  <button :class="wrapperClasses" :disabled="disabled">
+  <component :is="tag" :class="wrapperClasses" :disabled="disabled">
     <slot>{{ label }}</slot>
-  </button>
+  </component>
 </template>
 
 <script lang="ts">
@@ -23,6 +23,11 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false,
+    },
+    tag: {
+      type: String,
+      required: false,
+      default: 'button',
     },
   },
 

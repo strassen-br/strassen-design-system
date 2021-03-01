@@ -16,6 +16,15 @@
       disabled
     />
   </div>
+  <div class="row">
+    <st-link
+      v-for="size in ['sm', 'md', 'lg']"
+      :key="size"
+      :size="size"
+      tag="a"
+      label="Label"
+    />
+  </div>
 </template>
 
 <script lang="ts">
