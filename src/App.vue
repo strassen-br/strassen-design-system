@@ -5,6 +5,7 @@
         <st-button-demo />
         <st-link-demo />
         <st-icon-demo />
+        <st-text-input-demo />
       </div>
     </div>
   </div>
@@ -15,6 +16,7 @@ import { defineComponent } from 'vue'
 import StButtonDemo from './local/StButtonDemo.vue'
 import StIconDemo from './local/StIconDemo.vue'
 import StLinkDemo from './local/StLinkDemo.vue'
+import StTextInputDemo from './local/StTextInputDemo.vue'
 
 export default defineComponent({
   name: 'App',
@@ -23,6 +25,7 @@ export default defineComponent({
     StButtonDemo,
     StLinkDemo,
     StIconDemo,
+    StTextInputDemo,
 
   },
 })
@@ -30,7 +33,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .content {
-  @apply flex w-screen overflow-hidden;
+  @apply flex w-screen overflow-x-hidden;
 
   .row {
     @apply flex flex-wrap items-center space-x-6;
