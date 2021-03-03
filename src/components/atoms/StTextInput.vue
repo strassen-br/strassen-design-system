@@ -102,7 +102,7 @@ export default defineComponent({
 
     input {
       @apply bg-transparent border border-gray-700 placeholder-gray-400
-      w-full transition-all duration-300
+      rounded-none appearance-none w-full transition-all duration-300
       focus:border-black focus:ring focus:ring-gray-400;
       @apply outline-none focus:outline-none !important;
     }
