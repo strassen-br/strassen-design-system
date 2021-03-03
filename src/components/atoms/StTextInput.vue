@@ -4,6 +4,7 @@
     <div class="input-wrapper">
       <input
         :id="identifier"
+        v-model="computedModelValue"
         :name="identifier"
         :disabled="disabled"
         type="text"
@@ -81,6 +82,7 @@ export default defineComponent({
 
     return {
       wrapperClasses,
+      computedModelValue,
     }
   },
 })
@@ -89,6 +91,11 @@ export default defineComponent({
 <style lang="postcss">
 .st-text-input-wrapper {
   @apply flex flex-col;
+
+  .top-label,
+  .bottom-label {
+    @apply transition-all duration-300;
+  }
 
   .input-wrapper {
     @apply relative;
